@@ -1,42 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 12:40:46 by djoly             #+#    #+#             */
-/*   Updated: 2016/01/26 17:49:58 by djoly            ###   ########.fr       */
+/*   Updated: 2016/01/26 20:13:15 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf2.h"
 #include <stdio.h>
 
-void ft_check_token(const char *format, va_list *ap, t_t_list *t_token)
+void ft_check_token(const char *format, va_list *ap, t_tab *t_token)
 {
 	void *a;
 	a = va_arg(*ap, void *);
-	while (t_token)
+	int		i;
+	i = 0;
+	while (i < 2)
 	{
-		if (t_token->c == *format)
-		t_token->fonction(a);
-		t_token = t_token->next;
+		if (t_token[i].c == *format)
+		t_token[i].fonction(a);
+		i++;
 	}
-	/*
-	if (*format == 'd')
-		ft_putnbr((int) a);
-	else if (*format == 'c')
-		ft_putchar((char) a);*/
+
 }
+
 int     ft_printf(const char *format, ...)
-	{
-	t_t_list     *t_token;
-	va_list     ap;
-	//void    *ret;
-	//int      ret;
-	t_token = malloc(sizeof(t_t_list));
-	ft_init_list(t_token);
+{
+	//t_tab		*t_token;
+	va_list		ap;
+	t_env		env;
+
+	env.ret = 0;
+	env.t_token = (t_tab*)malloc(sizeof(t_tab*) * 2);
+	//printf("format: %s\n",format);
+	ft_init_list(&(env.t_token));
 	va_start(ap, format);
 	while(*format != '\0')
 	{
@@ -48,22 +49,23 @@ int     ft_printf(const char *format, ...)
 					format++;
 				}
 				else
-				ft_check_token(++format, &ap, t_token);
+				ft_check_token(++format, &ap, env.t_token);
 			}
 			else
+			{
 				ft_putchar(*format);
+			}
 			format++;
 	}
-	/*ret = va_arg(ap, void* );
-	printf("%d", (int) ret);
-	ret = va_arg(ap, void *);
-	printf("%c", (char) ret);*/
 	va_end(ap);
 	return (0);
 }
 
 int main ()
 {
-    ft_printf("str%%%d%cabc",0,'A');
+	//printf("abc");
+	printf("printf:|%4d|%2d|\n",123,123);
+	ft_printf("ft_printf:|%5d|%2d|\n",123,123);
+    ft_printf("|abc|%%|%d|%c|\n",0,'1');
     return (0);
 }
