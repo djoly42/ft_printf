@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 12:42:18 by djoly             #+#    #+#             */
-/*   Updated: 2016/01/26 16:56:59 by djoly            ###   ########.fr       */
+/*   Updated: 2016/01/26 20:17:25 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ void                    ft_init(t_t_list *t_token);
 void                    ft_init_list(t_t_list *t_token);
 
 
-
+// *tab de structure
 
 #endif

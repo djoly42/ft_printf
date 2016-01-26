@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf2.h                                       :+:      :+:    :+:   */
+/*   ft_printf3.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:33:26 by djoly             #+#    #+#             */
-/*   Updated: 2016/01/26 20:09:47 by djoly            ###   ########.fr       */
+/*   Updated: 2016/01/26 20:19:26 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ typedef struct			s_tab
 
 typedef struct			s_env
 {
-	int		ret;
-	t_tab	*t_token;
+	int			ret;
+	t_tab		*t_token;
+	const char	*format;
 }						t_env;
 
 // *tab de structure
