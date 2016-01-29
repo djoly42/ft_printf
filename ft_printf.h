@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:33:26 by djoly             #+#    #+#             */
-/*   Updated: 2016/01/29 14:03:41 by djoly            ###   ########.fr       */
+/*   Updated: 2016/01/29 15:54:00 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,12 @@ typedef struct          s_t_list
     struct s_t_list       *next;
 }                       t_t_list;
 */
+typedef struct s_env t_env;
+
 typedef struct			s_tab
 {
 	char	c;
-	void	(*fonction)(void *);
+	int	(*fonction)(t_env *env);
 }						t_tab;
 
 typedef struct			s_env
@@ -61,6 +63,7 @@ typedef struct			s_env
 // *tab de structure
 void                    ft_init(t_tab *t_token);
 t_tab                   *ft_init_list();
+void					ft_init_env(t_env *env);
 int                     ft_printf(const char *format,...);
 void                    run_format(t_env *env);
 int                    ft_check_token(t_env *env);

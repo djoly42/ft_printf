@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 11:48:11 by djoly             #+#    #+#             */
-/*   Updated: 2016/01/29 13:46:23 by djoly            ###   ########.fr       */
+/*   Updated: 2016/01/29 15:55:53 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ void	ft_putzero(t_env *env)
 void	ft_check_env(t_env *env)
 {
 	if (NBR != -1 && ITOK == 12)
+	{
 		if (FNDFLAGS[1] == 1)
 			ft_putzero(env);
 		else
 			ft_putspace(env);
+	}
 	//if (NBR != -1 && FNDFLAGS[2] == 1 && ITOK == 12)
 
 }
