@@ -1,29 +1,42 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: djoly <djoly@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2015/02/23 18:51:39 by mdriay            #+#    #+#              #
+#    Updated: 2016/01/29 16:52:41 by djoly            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-NAME = printf
+NAME = libftprintf.a
 
-FLAGS = -Wall -Wextra -Werror
+CC = gcc
 
-SRC = main.c ft_printf.c token.c  fonct_c.c ft_check_env.c
+CFLAGS = #-Wall -Wextra -Werror
 
-LIB = -L libft -lft
+RM = rm -f
+
+HEADERS = -I /
+
+SRC=ft_printf.c fonct_c.c ft_check_env.c token.c \
+ft_putchar.c ft_putnbr.c ft_atoi.c ft_strchr.c \
+ft_nbrlen.c \
 
 OBJ = $(SRC:.c=.o)
 
+$(NAME): ft_printf.h
+	$(CC) $(CFLAGS) -c $(SRC) $(HEADERS)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 
-$(NAME) :
-	gcc  -c $(SRC) $(FLAGS)
-	gcc -o $(NAME) $(OBJ) $(LIB)
+all: $(NAME)
 
-all : $(NAME)
-
-clean :
-	rm -f $(OBJ)
+clean:
+	$(RM) $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
-
-aclean: all clean
-
-.PHONY: all clean fclean re

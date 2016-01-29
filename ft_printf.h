@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:33:26 by djoly             #+#    #+#             */
-/*   Updated: 2016/01/29 15:54:00 by djoly            ###   ########.fr       */
+/*   Updated: 2016/01/29 16:50:58 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,11 @@ int                     fonct_x(t_env *env);
 int                     fonct_X(t_env *env);
 int                     fonct_c(t_env *env);
 int                     fonct_C(t_env *env);
-
-
+char					*ft_strchr(const char *s, int c);
+int						ft_putchar(char c);
+int						ft_putnbr(int n);
+int						ft_nbrlen(int nb);
+int						ft_atoi(const char *str);
 
 
 
