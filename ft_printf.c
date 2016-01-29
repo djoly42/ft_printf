@@ -6,64 +6,173 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 12:40:46 by djoly             #+#    #+#             */
-/*   Updated: 2016/01/26 17:49:58 by djoly            ###   ########.fr       */
+/*   Updated: 2016/01/29 14:09:03 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-void ft_check_token(const char *format, va_list *ap, t_t_list *t_token)
+int     ft_check_nbr(t_env *env)
 {
-	void *a;
-	a = va_arg(*ap, void *);
-	while (t_token)
+	/* 4 ok
+	ft_putstr("FORMAT==");
+	ft_putchar(FORMAT[IFOR]);
+	ft_putstr("<<<\n");
+	*/
+	if (FORMAT[IFOR] >= '1' && FORMAT[IFOR] <= '9' )
 	{
-		if (t_token->c == *format)
-		t_token->fonction(a);
-		t_token = t_token->next;
+
+		if (FNDFLAGS[9] == 1)
+		IFOR = IFOR + ft_nbrlen((NBRPREC = ft_atoi(&FORMAT[IFOR])));
+		else
+		IFOR = IFOR + ft_nbrlen((NBR = ft_atoi(&FORMAT[IFOR])));
+		/*nbr 4 ok
+		ft_putstr("NBR==");
+		ft_putnbr(NBR);
+		ft_putstr("<<<");
+		*/
+		/* 1 ok
+		ft_putstr("NBRLEN==");
+		ft_putnbr(ft_nbrlen(NBR));
+		ft_putstr("<<<");
+		*/
+
+		//ft_putstr(">>>>FIN<<<<");
+		return (1);
 	}
-	/*
-	if (*format == 'd')
-		ft_putnbr((int) a);
-	else if (*format == 'c')
-		ft_putchar((char) a);*/
-}
-int     ft_printf(const char *format, ...)
-	{
-	t_t_list     *t_token;
-	va_list     ap;
-	//void    *ret;
-	//int      ret;
-	t_token = malloc(sizeof(t_t_list));
-	ft_init_list(t_token);
-	va_start(ap, format);
-	while(*format != '\0')
-	{
-		if (*format == '%')
-			{
-				if(format[1] == '%')
-				{
-					ft_putchar('%');
-					format++;
-				}
-				else
-				ft_check_token(++format, &ap, t_token);
-			}
-			else
-				ft_putchar(*format);
-			format++;
-	}
-	/*ret = va_arg(ap, void* );
-	printf("%d", (int) ret);
-	ret = va_arg(ap, void *);
-	printf("%c", (char) ret);*/
-	va_end(ap);
 	return (0);
 }
 
-int main ()
+int     ft_check_flags(t_env *env)
 {
-    ft_printf("str%%%d%cabc",0,'A');
+    int     ifind;
+    char    *find;
+    ifind = 0;
+	/*retourne 3 OK
+	   ft_putstr("FORMAT>>>");
+	   ft_putchar(FORMAT[IFOR]);
+	   ft_putstr("<<<");
+*/
+	if ((find = ft_strchr(FLAGS,FORMAT[IFOR])))
+	{
+		//ft_putstr(">>>INIF<<<");
+		//ft_putchar(ARG);
+		ifind = find - FLAGS;
+		//ft_putstr(">>>INIF<<<");
+		if (ifind == 5 && FORMAT[IFOR + 1] == 'h')
+			FNDFLAGS[ifind] = 2;
+		else if (ifind == 6 && FORMAT[IFOR + 1] == 'l')
+			FNDFLAGS[ifind] = 2;
+		else
+			FNDFLAGS[ifind] = 1;
+		IFOR = IFOR + 1;
+		//ft_putstr(">>>>LOVE<<<<");
+		return (ifind);
+	}
+	//ft_putstr(">>>>HATE<<<<");
     return (0);
+}
+int 	ft_check_token(t_env *env)
+{
+    char    *find;
+    int     ifind;
+
+	IFOR = IFOR + 1;
+    ifind = 0;
+    ARG = va_arg(AP, void *);
+	/*retourne 3 OK
+   	ft_putstr("FORMAT>>>");
+   	ft_putchar(FORMAT[IFOR]);
+   	ft_putstr("<<<");
+*/
+	while (!(find = ft_strchr(TOKEN,FORMAT[IFOR])))
+	{
+
+ /*find 0 ok
+	ft_putstr("find|");
+	ft_putnbr(find);
+	ft_putchar('|');
+*/
+			 ifind = ft_check_nbr(env);//))
+			 ifind = ft_check_flags(env);
+			//IFOR = IFOR + ifind;
+			// c 1 0k  +3cOK
+			/*
+			ft_putstr("ifind>>>");
+			ft_putnbr(ifind);
+			ft_putstr("<<<");
+			*/
+	//	 ft_putstr("HATE");
+	//		return (-1);
+		//}
+	}
+
+// TEST FLAG TROUVER
+/*
+ft_putstr("FNDFLAGS>>>");
+ft_putnbr(FNDFLAGS[9]);
+ft_putstr("<<<");
+*/
+
+	ITOK = find - TOKEN;
+	//ft_putchar('D');
+	//ft_putnbr(ITOK);
+	env->fonct[ITOK].fonction(env);
+	return (1);
+}
+
+void    run_format(t_env *env)
+{
+//ft_putstr(env->format);
+    while (FORMAT[IFOR] != '\0')
+	{
+		//ft_putchar('A');
+		//ft_putchar(FORMAT[IFOR]);
+		if (FORMAT[IFOR] == '%')
+		{
+		//	ft_putstr("1");
+			if (FORMAT[IFOR + 1] == '%')
+			{
+				RET = RET + ft_putchar('%');
+				IFOR = IFOR + 1;
+			}
+			else
+				ft_check_token(env);
+		}
+		else
+		{
+
+			RET = RET + ft_putchar(FORMAT[IFOR]);
+		}
+		IFOR = IFOR + 1;
+		//ft_putstr("boucle");
+	}
+}
+
+int     ft_printf(const char *format, ...)
+{
+
+	//va_list		pa;
+	//void *a;
+//ft_putstr(format);
+	t_env		*env;
+
+	env = malloc(sizeof(t_env *));
+	//
+	env->format = format;
+
+
+    ft_init_env(env);
+
+
+
+	va_start(AP, format);
+	//ARG = va_arg(AP, void*);
+	//ft_putchar(ARG);
+
+    run_format(env);
+	va_end(AP);
+	free(env);
+	return (env->ret);
 }
