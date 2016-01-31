@@ -88,6 +88,7 @@ char					*ft_strchr(const char *s, int c);
 int						ft_putchar(char c);
 int						ft_putnbr(int n);
 int						ft_nbrlen(int nb);
+void						ft_putstr(const char *str);
 int						ft_atoi(const char *str);
 
 

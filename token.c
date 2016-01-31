@@ -59,7 +59,7 @@ t_tab   *ft_init_list()
     t_token++;
     //t_token = (t_tab*)malloc(sizeof(t_tab*));
 	t_token->c = 'd';
-	//t_token->fonction = fonct_d;
+	t_token->fonction = fonct_d;
     t_token++;
     //t_token = (t_tab*)malloc(sizeof(t_tab*));
 	t_token->c = 'D';

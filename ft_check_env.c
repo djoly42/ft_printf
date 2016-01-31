@@ -15,10 +15,30 @@
 void	ft_putspace(t_env *env)
 {
 	int i;
-
+/*
+ft_putstr(">>itok>>");
+ft_putnbr(ITOK);
+ft_putstr("<<");
+ft_putstr(">>nbr>>");
+ft_putnbr(NBR);
+ft_putstr("<<");*/
 	i = -1;
-	while (++i < (NBR - 1))
-	 RET = RET + ft_putchar(' ');
+	if (ITOK == 12)
+		NBR = NBR - 1;
+	 else if (ITOK == 3)
+	{
+		NBR = NBR - ft_nbrlen(ARG);
+		if (FNDFLAGS[3] == 1)
+		NBR = NBR - 1;
+	}
+/*
+ft_putstr(">>nbr>>");
+ft_putnbr(NBR);
+ft_putstr("<<");
+*/
+	while (++i < (NBR))
+		 RET = RET + ft_putchar(' ');
+	
 
 }
 void	ft_putzero(t_env *env)
@@ -33,7 +53,7 @@ void	ft_putzero(t_env *env)
 
 void	ft_check_env(t_env *env)
 {
-	if (NBR != -1 && ITOK == 12)
+	if (NBR != -1)// && ITOK == 12)
 	{
 		if (FNDFLAGS[1] == 1)
 			ft_putzero(env);

@@ -49,16 +49,20 @@ int     ft_check_flags(t_env *env)
     int     ifind;
     char    *find;
     ifind = 0;
-	/*retourne 3 OK
-	   ft_putstr("FORMAT>>>");
+	/*rft_putstr("FORMAT>>>");
 	   ft_putchar(FORMAT[IFOR]);
 	   ft_putstr("<<<");
-*/
+etourne 3 OK
+	   */
 	if ((find = ft_strchr(FLAGS,FORMAT[IFOR])))
 	{
 		//ft_putstr(">>>INIF<<<");
 		//ft_putchar(ARG);
-		ifind = find - FLAGS;
+	ifind = find - FLAGS;
+/*	ft_putstr(">>>IFIND>>>");
+	   ft_putnbr(ifind);
+	   ft_putstr("<<<");
+*/
 		//ft_putstr(">>>INIF<<<");
 		if (ifind == 5 && FORMAT[IFOR + 1] == 'h')
 			FNDFLAGS[ifind] = 2;
@@ -68,7 +72,7 @@ int     ft_check_flags(t_env *env)
 			FNDFLAGS[ifind] = 1;
 		IFOR = IFOR + 1;
 		//ft_putstr(">>>>LOVE<<<<");
-		return (ifind);
+		return (1);
 	}
 	//ft_putstr(">>>>HATE<<<<");
     return (0);
@@ -89,34 +93,53 @@ int 	ft_check_token(t_env *env)
 	while (!(find = ft_strchr(TOKEN,FORMAT[IFOR])))
 	{
 
- /*find 0 ok
-	ft_putstr("find|");
-	ft_putnbr(find);
-	ft_putchar('|');
-*/
-			 ifind = ft_check_nbr(env);//))
-			 ifind = ft_check_flags(env);
-			//IFOR = IFOR + ifind;
-			// c 1 0k  +3cOK
-			/*
-			ft_putstr("ifind>>>");
-			ft_putnbr(ifind);
-			ft_putstr("<<<");
-			*/
-	//	 ft_putstr("HATE");
-	//		return (-1);
+		/*find 0 ok
+		  ft_putstr("find|");
+		  ft_putnbr(find);
+		  ft_putchar('|');
+		 */
+		/*
+		ft_putstr(">>>FORNAT[IFOR]>>>");
+		ft_putchar(FORMAT[IFOR]);
+		ft_putstr("<<<\n");
+		*/
+		if ( !(ifind = ft_check_nbr(env)))//))
+		{
+			//ft_putstr(">>>DANS IF<<<\n");
+			ifind = ft_check_flags(env);
+		}
+		if (!(ifind))
+		{
+			ft_putstr(">>>char non reconue<<<\n>>>");
+			ft_putchar(FORMAT[IFOR]);
+			ft_putstr("<<<\n");
+			IFOR = IFOR + 1;
+		}
+		//IFOR = IFOR + ifind;
+		// c 1 0k  +3cOK
+		/*
+		   ft_putstr("ifind>>>");
+		   ft_putnbr(ifind);
+		   ft_putstr("<<<");
+		 */
+		//	 ft_putstr("HATE");
+		//		return (-1);
 		//}
-	}
+}
 
 // TEST FLAG TROUVER
 /*
-ft_putstr("FNDFLAGS>>>");
-ft_putnbr(FNDFLAGS[9]);
+ft_putstr("FNDFLAGS%d>>>");
+ft_putnbr(FNDFLAGS[3]);
 ft_putstr("<<<");
 */
-
 	ITOK = find - TOKEN;
-	//ft_putchar('D');
+/*	
+ft_putstr("ITOK%d>>>");
+ft_putnbr(ITOK);
+ft_putstr("<<<");
+*/
+//ft_putchar('D');
 	//ft_putnbr(ITOK);
 	env->fonct[ITOK].fonction(env);
 	return (1);
@@ -173,6 +196,6 @@ int     ft_printf(const char *format, ...)
 
     run_format(env);
 	va_end(AP);
-	free(env);
+//	free(env);
 	return (env->ret);
 }

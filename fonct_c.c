@@ -14,5 +14,5 @@ int     fonct_c(t_env *env)
 		ft_check_env(env);
 		RET = RET + ft_putchar((char)ARG);
 	}
-    return(0);
+    return(1);
 }
