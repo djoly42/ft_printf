@@ -98,7 +98,7 @@ int	main(void)
 	mr = ft_printf("MINE>\t[% d]\n", 650);
 	or = printf("ORIG>\t[% d]\n", 650);
 	ft_print_result(mr, or, __LINE__);
-
+//10
 	mr = ft_printf("MINE>\t[% 5d]\n", 650);
 	or = printf("ORIG>\t[% 5d]\n", 650);
 	ft_print_result(mr, or, __LINE__);

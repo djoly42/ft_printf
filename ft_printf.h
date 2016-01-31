@@ -69,7 +69,7 @@ void                    run_format(t_env *env);
 int                    ft_check_token(t_env *env);
 int                     ft_check_flags(t_env *env);
 int                     ft_check_nbr(t_env *env);
-void					ft_check_env(t_env *env);
+//void					ft_check_env(t_env *env);
 int                     fonct_s(t_env *env);
 int                     fonct_S(t_env *env);
 int                     fonct_p(t_env *env);
