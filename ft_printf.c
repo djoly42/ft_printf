@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 12:40:46 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/16 17:17:31 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/18 11:12:54 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,11 @@ int 	ft_check_token(t_env *env)
 	*/
 	while (!(find = ft_strchr(TOKEN,FORMAT[IFOR])))
 	{
-
-		/*find 0 ok
+		if (FORMAT[IFOR] == '\0')
+		{
+			ft_putstr("find|");
+			return (0);
+		}/*find 0 ok
 		  ft_putstr("find|");
 		  ft_putnbr(find);
 		  ft_putchar('|');
@@ -117,7 +120,13 @@ int 	ft_check_token(t_env *env)
 			ft_putstr(">>char non reconue>>");
 			ft_putchar(FORMAT[IFOR]);
 			ft_putstr("<<");
+			//if ( )
 			IFOR = IFOR + 1;
+		}
+		if (FORMAT[IFOR] == '\0')
+		{
+			//ft_putstr("find|");
+			return (0);
 		}
 		//IFOR = IFOR + ifind;
 		// c 1 0k  +3cOK
@@ -168,6 +177,8 @@ void    run_format(t_env *env)
 			}
 			else
 				ft_check_token(env);
+				if (FORMAT[IFOR] == '\0')
+					return ;
 				ft_re_init_env(env);
 		}
 		else

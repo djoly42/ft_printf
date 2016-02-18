@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 17:04:56 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/16 18:17:21 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/18 12:50:42 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,6 +179,7 @@ int	main(void)
 	ft_print_result(mr, or, __LINE__);
 
 //Crashtest
+	printf("\033[1;37m====  CRASH TEST ===\033[0m\n");
 //29
 	mr = ft_printf("MINE>\t[%d]\n");
 	or = printf("ORIG>\t[%d]\n");
@@ -256,7 +257,7 @@ int	main(void)
 	mr = ft_printf("MINE>\t[%5.4d]\n", 10);
 	or = printf(   "ORIG>\t[%5.4d]\n", 10);
 	ft_print_result(mr, or, __LINE__);
-
+//43
 	mr = ft_printf("MINE>\t[%-8.4d]\n", 10);
 	or = printf(   "ORIG>\t[%-8.4d]\n", 10);
 	ft_print_result(mr, or, __LINE__);
@@ -272,7 +273,7 @@ int	main(void)
 	mr = ft_printf("MINE>\t[%2.4d]\n", 10000);
 	or = printf(   "ORIG>\t[%2.4d]\n", 10000);
 	ft_print_result(mr, or, __LINE__);
-
+//47
 	mr = ft_printf("MINE>\t[%10.1d]\n", 10000);
 	or = printf(   "ORIG>\t[%10.1d]\n", 10000);
 	ft_print_result(mr, or, __LINE__);
@@ -288,20 +289,34 @@ int	main(void)
 
 
 	ft_printf("%d\n", 42);
+	printf("%d\n", 42);
 	ft_printf("%d%d\n", 42, 41);
+	printf("%d%d\n", 42, 41);
 	ft_printf("%d%d%d\n", 42, 43, 44);
+	printf("%d%d%d\n", 42, 43, 44);
 	ft_printf("%ld\n", 2147483647);
+	printf("%ld\n", 2147483647);
 	ft_printf("%lld\n", 9223372036854775807);
+	printf("%lld\n", 9223372036854775807);
 
 	ft_printf("%20.15d\n", 54321);
+	printf("%20.15d\n", 54321);
 	ft_printf("%-10d\n", 3);
+	printf("%-10d\n", 3);
 	ft_printf("% d\n", 3);
+	printf("% d\n", 3);
 	ft_printf("%+d\n", 3);
+	printf("%+d\n", 3);
 	ft_printf("%010d\n", 1);
+	printf("%010d\n", 1);
 	ft_printf("%hhd\n", 0);
+	printf("%hhd\n", 0);
 	ft_printf("%jd\n", 9223372036854775807);
+	printf("%jd\n", 9223372036854775807);
 	ft_printf("%zd\n", 4294967295);
+	printf("%zd\n", 4294967295);
 	ft_printf("%\n");
+	printf("%\n");
 
 
 
@@ -309,64 +324,64 @@ int	main(void)
 	/* Pourquoi les ft_printf de ft_printf ? Parce que printf renvoie le nombre de caractere qu'il a affiche. Ainsi, on peut verifier si on renvoie bien le bon nombre.
 	   Attention ! Il doit y avoir un caractere de moins sur le ft_printf puisqu'il n'a qu'un \n, pour plus de lisibilite */
 
-	printf("%d\n\n", ft_printf("%d\n\n", printf("%d\n", 2147483647)));
+//	printf("%d\n\n", ft_printf("%d\n\n", printf("%d\n", 2147483647)));
 
 	/* Verifiez bien les bornes ! Elles ont tendance a boucler infini ... */
 
 	ft_printf("%d\n", ft_printf("Les bornes :  %d, %d\n", -2147483648, 2147483647));
-	ft_printf("%d\n", ft_printf("Les bornes :  %u, %u\n", 0, 4294967295));
+/*	ft_printf("%d\n", ft_printf("Les bornes :  %u, %u\n", 0, 4294967295));
 	ft_printf("%d\n", ft_printf("Les bornes :  %o, %o\n", 0, 4294967295));
 	ft_printf("%d\n", ft_printf("Les bornes :  %x, %x\n", 0, 4294967295));
-
+*/
 	/* Verification des decimals, %i et %d */
 
 	ft_printf("%d\n", ft_printf("1chiffre 1 %d chiffre 2 %d\n", 42, -42));
-	printf("%d\n\n", printf("1chiffre 1 %d chiffre 2 %d\n\n", 42, -42));
+	printf("%d\n\n", printf("1chiffre 1 %d chiffre 2 %d\n", 42, -42));
 
 	ft_printf("%d\n", ft_printf("2chiffre 1 %   d chiffre 2 % d\n", 42, -42));
-	printf("%d\n\n", printf("2chiffre 1 %   d chiffre 2 % d\n\n", 42, -42));
+	printf("%d\n\n", printf("2chiffre 1 %   d chiffre 2 % d\n", 42, -42));
 
 	ft_printf("%d\n", ft_printf("3chiffre 1 %12d chiffre 2 %12d\n", 42, -42));
-	printf("%d\n\n", printf("3chiffre 1 %12d chiffre 2 %12d\n\n", 42, -42));
+	printf("%d\n\n", printf("3chiffre 1 %12d chiffre 2 %12d\n", 42, -42));
 
 	ft_printf("%d\n", ft_printf("4chiffre 1 %-12d chiffre 2 %-12d\n", 42, -42));
-	printf("%d\n\n", printf("4chiffre 1 %-12d chiffre 2 %-12d\n\n", 42, -42));
+	printf("%d\n\n", printf("4chiffre 1 %-12d chiffre 2 %-12d\n", 42, -42));
 
 	ft_printf("%d\n", ft_printf("5chiffre 1 %0d chiffre 2 %0d\n", 42, -42));
-	printf("%d\n\n", printf("5chiffre 1 %0d chiffre 2 %0d\n\n", 42, -42));
+	printf("%d\n\n", printf("5chiffre 1 %0d chiffre 2 %0d\n", 42, -42));
 
 	ft_printf("%d\n", ft_printf("6chiffre 1 %012d chiffre 2 %012d\n", 42, -42));
-	printf("%d\n\n", printf("6chiffre 1 %012d chiffre 2 %012d\n\n", 42, -42));
+	printf("%d\n\n", printf("6chiffre 1 %012d chiffre 2 %012d\n", 42, -42));
 
 	ft_printf("%d\n", ft_printf("7chiffre 1 %-012d chiffre 2 %012d\n", 42, -42));
-	printf("%d\n\n", printf("7chiffre 1 %-012d chiffre 2 %012d\n\n", 42, -42));
+	printf("%d\n\n", printf("7chiffre 1 %-012d chiffre 2 %012d\n", 42, -42));
 
 	ft_printf("%d\n", ft_printf("8chiffre 1 %*d chiffre 2 %*d\n", 42, 6, 6, 6));
-	printf("%d\n\n", printf("8chiffre 1 %*d chiffre 2 %*d\n\n", 42, 6, 6, 6));
+	printf("%d\n\n", printf("8chiffre 1 %*d chiffre 2 %*d\n", 42, 6, 6, 6));
 
 	ft_printf("%d\n", ft_printf("9chiffre 1 %+d chiffre 2 %+d\n", 42, 6, -42, 6));
-	printf("%d\n\n", printf("9chiffre 1 %+d chiffre 2 %+d\n\n", 42, 6, -42, 6));
+	printf("%d\n\n", printf("9chiffre 1 %+d chiffre 2 %+d\n", 42, 6, -42, 6));
 
 	ft_printf("%d\n", ft_printf("10chiffre 1 %+12d chiffre 2 %+12d\n", 42, 6, -42, 6));
-	printf("%d\n\n", printf("10chiffre 1 %+12d chiffre 2 %+12d\n\n", 42, 6, -42, 6));
+	printf("%d\n\n", printf("10chiffre 1 %+12d chiffre 2 %+12d\n", 42, 6, -42, 6));
 
 	ft_printf("%d\n", ft_printf("11chiffre 1 %*12d chiffre 2 %*12d\n", 42, -6, 42, 6));
-	printf("%d\n\n", printf("11chiffre 1 %*12d chiffre 2 %*12d\n\n", 42, -6, 42, 6));
+	printf("%d\n\n", printf("11chiffre 1 %*12d chiffre 2 %*12d\n", 42, -6, 42, 6));
 
-	ft_printf("%d\n", ft_printf("12chiffre 1 %-+5d chiffre 2 %-+5d\n", 42, -42));
-	printf("%d\n\n", printf("12chiffre 1 %-+5d chiffre 2 %-+5d\n\n", 42, -42));
+	ft_printf("%d\n", ft_printf("12chiffre 1 |%-+5d| chiffre 2 |%-+5d|\n", 42, -42));
+	printf("%d\n\n", printf("12chiffre 1 |%-+5d| chiffre 2 |%-+5d|\n", 42, -42));
 
-	ft_printf("%d\n", ft_printf("13chiffre 1 %-+05d chiffre 2 %-+05d\n", 42, -42));
-	printf("%d\n\n", printf("13chiffre 1 %-+05d chiffre 2 %-+05d\n\n", 42, -42));
+	ft_printf("%d\n", ft_printf("13chiffre 1 |%-+05d| chiffre 2 |%-+05d|\n", 42, -42));
+	printf("%d\n\n", printf("13chiffre 1 |%-+05d| chiffre 2 |%-+05d|\n", 42, -42));
 
 	ft_printf("%d\n", ft_printf("14chiffre 1 %+-5d chiffre 2 %+-5d\n", 42, -42));
-	printf("%d\n\n", printf("14chiffre 1 %+-5d chiffre 2 %+-5d\n\n", 42, -42));
+	printf("%d\n\n", printf("14chiffre 1 %+-5d chiffre 2 %+-5d\n", 42, -42));
 
 	ft_printf("%d\n", ft_printf("15chiffre 1 %.d chiffre 2 %.d\n", 42, -42));
-	printf("%d\n\n", printf("15chiffre 1 %.d chiffre 2 %.d\n\n", 42, -42));
+	printf("%d\n\n", printf("15chiffre 1 %.d chiffre 2 %.d\n", 42, -42));
 
 	ft_printf("%d\n", ft_printf("16chiffre 1 %.6d chiffre 2 %.6d\n", 42, -42));
-	printf("%d\n\n", printf("16chiffre 1 %.6d chiffre 2 %.6d\n\n", 42, -42));
+	printf("%d\n\n", printf("16chiffre 1 %.6d chiffre 2 %.6d\n", 42, -42));
 
 
 
@@ -389,5 +404,6 @@ int	main(void)
 	printf("Test de cliffre sans l : %d, et %d\n", 32147483647, -32147483647);
 	printf("Test de cliffre avec l : %ld, et %ld\n", 32147483647, -32147483647);
 	ft_printf("Test de cliffre avec l : %ld, et %ld\n\n", 32147483647, -32147483647);
-	return(0);
+
+    return(0);
 }

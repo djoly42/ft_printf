@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:33:26 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/16 17:30:52 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/18 11:40:15 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define FT_PRINTF_H
 # include <stdarg.h>
 # include "unistd.h"
-
+#include <inttypes.h>
+#include <string.h>
 //# include "libft/includes/libft.h"
 # define TOKEN "sSpdDioOuUxXcC"
 # define FLAGS "#0-+ hljz."
@@ -96,6 +97,7 @@ int						ft_nbrlen(int nb);
 void						ft_putstr(const char *str);
 int						ft_atoi(const char *str);
 int                     ft_putspace(int nbr); //dans ft_check_env.c
+int	ft_putzero2(int nbr);
 
 
 
