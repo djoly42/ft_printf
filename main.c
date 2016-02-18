@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/28 10:54:56 by daniel            #+#    #+#             */
-/*   Updated: 2016/02/16 13:23:15 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/18 14:06:46 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,37 +23,37 @@ int main ()
 	printf("======== %%c ========\n");
 	mr = ft_printf("MINE>\t[%c]\n", 'H');
 	or = printf("ORIG>\t[%c]\n", 'H');
-//	printf("mr:%d or:%d\n",mr, or);
+	printf("mr:%d or:%d\n",mr, or);
 
 	mr = ft_printf("MINE>2c\t[%2c]\n", 'r');
 	or = printf("ORIG>2c\t[%2c]\n", 'r');
-//	printf("mr:%d or:%d\n",mr, or);
+	printf("mr:%d or:%d\n",mr, or);
 
 	mr = ft_printf("MINE>+3c\t[%+3c]\n", 'r');
 	or = printf("ORIG>+3c\t[%+3c]\n", 'r');
-//	printf("mr:%d or:%d\n",mr, or);
+	printf("mr:%d or:%d\n",mr, or);
 
 //	printf("mr:>>%-3.+4d<<or:\n",42);
 	mr = ft_printf("MINE>-3c\t[%-3c]\n", 'r');
 	or = printf("ORIG>-3c\t[%-3c]\n", 'r');
-//	printf("mr:%d or:%d\n",mr, or);
+	printf("mr:%d or:%d\n",mr, or);
 
 	mr = ft_printf("MINE>-10c\t[%-10c]\n", 'r');
 	or = printf("ORIG>-10c\t[%-10c]\n", 'r');
-	//printf("mr:%d or:%d\n",mr, or);
+printf("mr:%d or:%d\n",mr, or);
 // mine 000r ORIG     r ???
 	mr = ft_printf("MINE>010c\t[%010c]\n", 'r');
 	or = printf("ORIG>010c\t[%010c]\n", 'r');
-	//printf("mr:%d or:%d\n",mr, or);
+	printf("mr:%d or:%d\n",mr, or);
 
 	mr = ft_printf("MINE>+-10c\t[%+-10c]\n", 'r');
 	or = printf("ORIG>+-10c\t[%+-10c]\n", 'r');
-	//printf("mr:%d or:%d\n",mr, or);
+	printf("mr:%d or:%d\n",mr, or);
 // mine 000r ORIG     r ???
 
 	mr = ft_printf("MINE>0+10c\t[%0+10c]\n", 'r');
 	or = printf("ORIG>0+10c\t[%0+10c]\n", 'r');
-//	printf("mr:%d or:%d\n",mr, or);
+	printf("mr:%d or:%d\n",mr, or);
 
 /* 	========c AVEC * ============
 	mr = ft_printf("MINE>\t[%*c]\n", 8, 'c');
@@ -67,21 +67,21 @@ int main ()
 */
 	mr = ft_printf("MINE>5.4c\t[%5.2c]\n", 'k');
 	or = printf(   "ORIG>5.4c\t[%5.2c]\n", 'k');
-//	printf("mr:%d or:%d\n",mr, or);
+	printf("mr:%d or:%d\n",mr, or);
 
 	mr = ft_printf("MINE>-5.4c\t[%-5.4c]\n", 'k');
 	or = printf(   "ORIG>-5.4c\t[%-5.4c]\n", 'k');
-//	printf("mr:%d or:%d\n",mr, or);
-/*		lc == C
-	ft_printf("%lc, %lc", L'暖', L'ح');
-	printf("%lc, %lc", L'暖', L'ح');
-//	printf("mr:%d or:%d\n",mr, or);
-*/
+	printf("mr:%d or:%d\n",mr, or);
+//		lc == C
+	ft_printf("MINE>lc>>%lc, %lc", L'暖', L'ح');
+	printf("ORIG>lc>>%lc, %lc", L'暖', L'ح');
+	printf("mr:%d or:%d\n",mr, or);
 
+/*
 	ft_printf("MINE>#c>\t[%#c]\n", 0);
 	printf("ORIG>#c>\t[%#c]\n", 0);
 //	printf("mr:%d or:%d\n",mr, or);
-
+*/
 	ft_printf("MINE>+c\t[%+c]\n", 0);
 	printf("ORIG>+c\t[%+c]\n", 0);
 //	printf("mr:%d or:%d\n",mr, or);
@@ -102,11 +102,11 @@ int main ()
 	printf("ORIG>c\t[%c]\n", 200);
 
 //	printf("======== end %%c =====\n\n");
-
+/*
 	//printf("abc")
 	printf("|%d|\n",12345);
 	ft_printf("|%d|\n",12345);
-/*	printf("|%+d|\n",12345);
+	printf("|%+d|\n",12345);
 	ft_printf("|%+d|\n",12345);
 	printf("|%8d|\n",12345);
 	ft_printf("|%8d|\n",12345);
@@ -124,9 +124,9 @@ int main ()
     printf("printf:|%4d|%2d|\n",123,123);
 	ft_printf("ft_printf:|%d|%d|\n",123,123);
     ft_printf("|abc|%%|%d|%c|\n",0,'1');
-
-
 */
+
+
 	  /* PLUS PLUS Memes tests avec les %c */
 
 	  ft_printf("%d\n", ft_printf("1caractere 1 %c caractere 2 %c\n", 'a', 'c'));

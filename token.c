@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:30:41 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/16 14:59:54 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/18 15:26:05 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void    ft_re_init_env(t_env *env)//, const char *format)
     NBR = -1;
 	NBRPREC = -1;
 	env->putneg = 0;
+	env->arglen = 0;
 	//ft_putchar('C');
 	//FNDFLAGS = malloc(sizeof(char *));
 	while (i < 10)
@@ -40,20 +41,20 @@ void    ft_re_init_env(t_env *env)//, const char *format)
 
 void ft_init_list2(t_env *env)
 {
-	env->fonction[0] = fonct_d;
+	env->fonction[0] = fonct_u;
 	env->fonction[1] = fonct_d;
 	env->fonction[2] = fonct_d;
 	env->fonction[3] = fonct_d;
-	env->fonction[4] = fonct_d;
-	env->fonction[5] = fonct_d;
-	env->fonction[6] = fonct_d;
-	env->fonction[7] = fonct_d;
-	env->fonction[8] = fonct_d;
-	env->fonction[9] = fonct_d;
-	env->fonction[10] = fonct_d;
-	env->fonction[11] = fonct_d;
+	env->fonction[4] = fonct_u;
+	env->fonction[5] = fonct_u;
+	env->fonction[6] = fonct_u;
+	env->fonction[7] = fonct_u;
+	env->fonction[8] = fonct_u;
+	env->fonction[9] = fonct_u;
+	env->fonction[10] = fonct_u;
+	env->fonction[11] = fonct_u;
 	env->fonction[12] = fonct_c;
-	env->fonction[13] = fonct_d;
+	env->fonction[13] = fonct_u;
 
 
 

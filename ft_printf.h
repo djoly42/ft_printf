@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:33:26 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/18 11:40:15 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/18 15:25:03 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "unistd.h"
 #include <inttypes.h>
 #include <string.h>
+#include <wchar.h>
 //# include "libft/includes/libft.h"
 # define TOKEN "sSpdDioOuUxXcC"
 # define FLAGS "#0-+ hljz."
@@ -63,6 +64,7 @@ typedef struct			s_env
 	int			nbr_precision;
     char        fndflags[10];//0# 10 2- 3+ 4  5h 6l 7j 8z 9.
 	int			ret;
+	int 		arglen;
 }						t_env;
 
 // *tab de structure
@@ -92,6 +94,7 @@ int                     fonct_c(t_env *env);
 int                     fonct_C(t_env *env);
 char					*ft_strchr(const char *s, int c);
 int						ft_putchar(char c);
+int						ft_putcharwt(wint_t c);
 int						ft_putnbr(long long int nbr);
 int						ft_nbrlen(int nb);
 void						ft_putstr(const char *str);

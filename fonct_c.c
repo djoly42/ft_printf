@@ -51,12 +51,18 @@ int     fonct_c(t_env *env)
 	if (FNDFLAGS[2] == 1)
 	{
 		//ft_check_env(env);
+		if (FNDFLAGS[6] == 1)
+		RET = RET + ft_putcharwt((wchar_t)ARG);
+		else
 		RET = RET + ft_putchar((char)ARG);
 		ft_check_env(env);
 	}
 	else
 	{
 		ft_check_env(env);
+		if (FNDFLAGS[6] == 1)
+		RET = RET + ft_putcharwt((wchar_t)ARG);
+		else
 		RET = RET + ft_putchar((char)ARG);
 	}
     return(1);

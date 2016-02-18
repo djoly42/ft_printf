@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   fonct_u.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/01 20:01:33 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/18 14:17:43 by djoly            ###   ########.fr       */
+/*   Created: 2016/02/18 15:03:36 by djoly             #+#    #+#             */
+/*   Updated: 2016/02/18 15:32:27 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_putchar(char c)
+int                     fonct_u(t_env *env)
 {
-	return(write(1, &c, 1));
-}
+	env->arglen = ft_nbrlen((unsigned int)ARG);
+	if (FNDFLAGS[2] == -1 && NBR != -1)
+		RET = RET + ft_putspace(NBR - env->arglen);
+	RET = RET + ft_putnbr((unsigned int)ARG);
+	if (FNDFLAGS[2] == 1 && NBR != -1)
+		RET = RET + ft_putspace(NBR - env->arglen);
 
-
-int		ft_putcharwt(wchar_t c)
-{
-	return(write(1, &c, 100));
+return (1);
 }
