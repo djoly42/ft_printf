@@ -6,14 +6,16 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:33:26 by djoly             #+#    #+#             */
-/*   Updated: 2016/01/29 16:50:58 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/16 17:30:52 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 # include <stdarg.h>
-# include "libft/includes/libft.h"
+# include "unistd.h"
+
+//# include "libft/includes/libft.h"
 # define TOKEN "sSpdDioOuUxXcC"
 # define FLAGS "#0-+ hljz."
 
@@ -47,11 +49,13 @@ typedef struct			s_tab
 
 typedef struct			s_env
 {
+	int	(*fonction[14])(t_env *env);
 	t_tab		*fonct;
 	const char	*format;
     int         ifor;
     int         itok; // indice des token dans str et *fonct
     void        *arg;
+	int			putneg;
     va_list     ap;
  //   int         token;
 	int			nbr;
@@ -64,6 +68,7 @@ typedef struct			s_env
 void                    ft_init(t_tab *t_token);
 t_tab                   *ft_init_list();
 void					ft_init_env(t_env *env);
+void					ft_re_init_env(t_env *env);
 int                     ft_printf(const char *format,...);
 void                    run_format(t_env *env);
 int                    ft_check_token(t_env *env);
@@ -86,11 +91,11 @@ int                     fonct_c(t_env *env);
 int                     fonct_C(t_env *env);
 char					*ft_strchr(const char *s, int c);
 int						ft_putchar(char c);
-int						ft_putnbr(int n);
+int						ft_putnbr(long long int nbr);
 int						ft_nbrlen(int nb);
 void						ft_putstr(const char *str);
 int						ft_atoi(const char *str);
-
+int                     ft_putspace(int nbr); //dans ft_check_env.c
 
 
 

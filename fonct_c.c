@@ -1,30 +1,28 @@
 
 #include "ft_printf.h"
-
+/*
 static void	ft_putspace(t_env *env)
 {
 	int i;
-/*
+
 ft_putstr(">>itok>>");
 ft_putnbr(ITOK);
 ft_putstr("<<");
 ft_putstr(">>nbr>>");
 ft_putnbr(NBR);
-ft_putstr("<<");*/
+ft_putstr("<<");
 	i = -1;
 	if (ITOK == 12)
 		NBR = NBR - 1;
-/*
+
 ft_putstr(">>nbr>>");
 ft_putnbr(NBR);
 ft_putstr("<<");
-*/
+
 	while (++i < (NBR))
 		 RET = RET + ft_putchar(' ');
-	
-
 }
-
+*/
 static void	ft_putzero(t_env *env)
 {
 	int i;
@@ -39,10 +37,11 @@ static void	ft_check_env(t_env *env)
 {
 	if (NBR != -1)// && ITOK == 12)
 	{
-		if (FNDFLAGS[1] == 1)
+		if (FNDFLAGS[1] == 1 && FNDFLAGS[2] == -1)
 			ft_putzero(env);
 		else
-			ft_putspace(env);
+			RET = RET + ft_putspace(env->nbr - 1);
+			//RET = RET + NBR - 1; // ajjoute le nombre d espace
 	}
 	//if (NBR != -1 && FNDFLAGS[2] == 1 && ITOK == 12)
 

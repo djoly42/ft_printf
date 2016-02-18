@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/28 10:54:56 by daniel            #+#    #+#             */
-/*   Updated: 2016/01/29 17:15:15 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/16 13:23:15 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int main ()
 	or = printf("ORIG>\t[%c]\n", 'H');
 //	printf("mr:%d or:%d\n",mr, or);
 
-	mr = ft_printf("MINE>3c\t[%2c]\n", 'r');
-	or = printf("ORIG>3c\t[%2c]\n", 'r');
+	mr = ft_printf("MINE>2c\t[%2c]\n", 'r');
+	or = printf("ORIG>2c\t[%2c]\n", 'r');
 //	printf("mr:%d or:%d\n",mr, or);
 
 	mr = ft_printf("MINE>+3c\t[%+3c]\n", 'r');
@@ -135,7 +135,7 @@ int main ()
 	  ft_printf("%d\n", ft_printf("2caractere 1 %   c caractere 2 % c\n", 'a', 'c'));
 	  printf("%d\n\n", printf("2caractere 1 %   c caractere 2 % c\n", 'a', 'c'));
 
-	  ft_printf("%d\n", ft_printf("3caractere 1 %12c caractere 2 %12c\n", 'a', 'c'));
+	  printf("%d\n", ft_printf("3caractere 1 %12c caractere 2 %12c\n", 'a', 'c'));
 	  printf("%d\n\n", printf("3caractere 1 %12c caractere 2 %12c\n", 'a', 'c'));
 
 	  ft_printf("%d\n", ft_printf("4caractere 1 %-12c caractere 2 %-12c\n", 'a', 'c'));

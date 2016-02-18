@@ -6,13 +6,13 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 20:09:51 by djoly             #+#    #+#             */
-/*   Updated: 2016/01/29 16:48:25 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/16 16:12:21 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(int nbr)
+int	ft_putnbr(long long int nbr)
 {
 	int	ret;
 
