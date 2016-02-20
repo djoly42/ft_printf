@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djoly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/01 20:05:36 by djoly             #+#    #+#             */
-/*   Updated: 2015/12/30 11:37:03 by djoly            ###   ########.fr       */
+/*   Created: 2015/11/26 18:10:20 by djoly             #+#    #+#             */
+/*   Updated: 2015/12/30 11:26:07 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 size_t	ft_strlen(const char *str)
 {
@@ -22,30 +22,4 @@ size_t	ft_strlen(const char *str)
 		i++;
 	}
 	return (i);
-}
-
-int 	ft_putstr2(char const *s, int len)
-{
-	int		i;
-
-	i = 0;
-	while (s[i] != '\0' && i < len)
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
-    return (i);
-}
-
-int 	ft_putstr(char const *s)
-{
-	int		i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
-    return (i);
 }

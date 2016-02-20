@@ -31,7 +31,7 @@
 # define NBRPREC	env->nbr_precision
 # define FNDFLAGS  env->fndflags
 # define RET    env->ret
-
+# define ARGLEN env->arglen
 
 /*
 typedef struct          s_t_list
@@ -98,7 +98,9 @@ int						ft_putcharwt(wchar_t c);
 int						ft_putnbr(long long int nbr);
 int						ft_nbrlen(int nb);
 int						ft_unbrlen(unsigned int nb);
-void						ft_putstr(const char *str);
+int						ft_putstr2(const char *str, int len);
+int						ft_putstr(const char *str);
+size_t                 	ft_strlen(const char *str);
 int						ft_atoi(const char *str);
 int                     ft_putspace(int nbr); //dans ft_check_env.c
 int	ft_putzero2(int nbr);
