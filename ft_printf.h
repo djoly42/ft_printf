@@ -94,9 +94,10 @@ int                     fonct_c(t_env *env);
 int                     fonct_C(t_env *env);
 char					*ft_strchr(const char *s, int c);
 int						ft_putchar(char c);
-int						ft_putcharwt(wint_t c);
+int						ft_putcharwt(wchar_t c);
 int						ft_putnbr(long long int nbr);
 int						ft_nbrlen(int nb);
+int						ft_unbrlen(unsigned int nb);
 void						ft_putstr(const char *str);
 int						ft_atoi(const char *str);
 int                     ft_putspace(int nbr); //dans ft_check_env.c

@@ -12,6 +12,21 @@
 
 #include "ft_printf.h"
 
+int		ft_unbrlen(unsigned int nb)
+{
+	int i;
+
+    i = 1; 
+    if (nb < 0)
+    {
+        i++;
+        nb = -nb;
+    }
+	while (nb /= 10)
+		i++;
+	return (i);
+}
+
 int		ft_nbrlen(int nb)
 {
 	int i;

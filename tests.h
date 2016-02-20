@@ -1,5 +1,5 @@
 rm ./a.out
 make fclean
 make aclean
-gcc main.c libftprintf.a
+gcc mains.c libftprintf.a
 ./a.out # | cat -e

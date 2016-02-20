@@ -1,0 +1,106 @@
+
+#include "ft_printf.h"
+# include <stdarg.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <string.h>
+
+#include <stdio.h> /* !!! */
+
+typedef unsigned long long		ull;
+typedef long long				ll;
+typedef unsigned long			ul;
+
+typedef enum		e_modifier
+{
+	NONE,
+	HH,
+	H,
+	L,
+	LL,
+	J,
+	T,
+	Z
+}
+;
+void	ft_print_result(int mr, int or, int line)
+{
+	static int c = 0;
+	printf("\033[33m[%d]\033[0m MINE = %i - ORIG = %i", c, mr, or);
+	if (mr == or)
+		printf("\t\033[32m✔\033[0m");
+	else
+		printf("\t\033[31m✘ - (failed between lines %i and %i)\033[0m",
+			   line - 3, line);
+	printf("\n---------------\n");
+	c++;
+}
+
+int	main(void)
+{
+	int	or, mr;
+	char	**test;
+
+	test = malloc(sizeof(char*));
+	or = 0;
+	mr = 0;
+		printf("\033[1;37m======== %%s ========\033[0m\n");
+
+	mr = ft_printf("MINE>\t[%s]\n", "");
+	or = printf("ORIG>\t[%s]\n", "");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%10s]\n", "");
+	or = printf("ORIG>\t[%10s]\n", "");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%s]\n", NULL);
+	or = printf("ORIG>\t[%s]\n", NULL);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%s]\n", "Coconut");
+	or = printf("ORIG>\t[%s]\n", "Coconut");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[% s]\n", "Coconut");
+	or = printf("ORIG>\t[% s]\n", "Coconut");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[% 2s]\n", "Coconut");
+	or = printf("ORIG>\t[% 2s]\n", "Coconut");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%-4s]\n", "Coconut");
+	or = printf("ORIG>\t[%-4s]\n", "Coconut");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%+8s]\n", "Coconut");
+	or = printf("ORIG>\t[%+8s]\n", "Coconut");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%+15s]\n", "Coconut");
+	or = printf("ORIG>\t[%+15s]\n", "Coconut");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%-15s]\n", "Coconut");
+	or = printf("ORIG>\t[%-15s]\n", "Coconut");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%15s]\n", "Coconut");
+	or = printf("ORIG>\t[%15s]\n", "Coconut");
+	ft_print_result(mr, or, __LINE__);
+
+
+	printf("\033[1;37m======== end %%s =====\033[0m\n\n");
+
+	mr = ft_printf("MINE>\t[%5.4s]\n", "ok");
+	or = printf(   "ORIG>\t[%5.4s]\n", "ok");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%-5.4s]\n", "ok");
+	or = printf(   "ORIG>\t[%-5.4s]\n", "ok");
+	ft_print_result(mr, or, __LINE__);
+
+
+    return (0);
+}
