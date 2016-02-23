@@ -45,11 +45,57 @@ int	main(void)
 	mr = 0;
 		printf("\033[1;37m======== %%o ========\033[0m\n");
 
+mr = ft_printf("MINE>\t[%o]\n", 1);
+	or = printf("ORIG>\t[%o]\n", 1);
+	ft_print_result(mr, or, __LINE__);
+
+mr = ft_printf("MINE>\t[%o]\n", 2);
+	or = printf("ORIG>\t[%o]\n", 2);
+	ft_print_result(mr, or, __LINE__);
+
+mr = ft_printf("MINE>\t[%o]\n", 8);
+	or = printf("ORIG>\t[%o]\n", 8);
+	ft_print_result(mr, or, __LINE__);
+
+mr = ft_printf("MINE>\t[%o]\n", 9);
+	or = printf("ORIG>\t[%o]\n", 9);
+	ft_print_result(mr, or, __LINE__);
+
+mr = ft_printf("MINE>\t[%o]\n", 10);
+	or = printf("ORIG>\t[%o]\n", 10);
+	ft_print_result(mr, or, __LINE__);
+
+mr = ft_printf("MINE>\t[%o]\n", 11);
+	or = printf("ORIG>\t[%o]\n", 11);
+	ft_print_result(mr, or, __LINE__);
+
+mr = ft_printf("MINE>\t[%o]\n", -1);
+	or = printf("ORIG>\t[%o]\n", -1);
+	ft_print_result(mr, or, __LINE__);
+
+mr = ft_printf("MINE>\t[%o]\n", -2);
+	or = printf("ORIG>\t[%o]\n", -2);
+	ft_print_result(mr, or, __LINE__);
+
+    mr = ft_printf("MINE>\t[%o]\n", 2048);
+	or = printf("ORIG>\t[%o]\n", 2048);
+	ft_print_result(mr, or, __LINE__);
+
+    mr = ft_printf("MINE>\t[%o]\n", 2048);
+	or = printf("ORIG>\t[%o]\n", 2048);
+	ft_print_result(mr, or, __LINE__);
+
+
+
+
+
+
+
 	mr = ft_printf("MINE>\t[%o]\n", 2048);
 	or = printf("ORIG>\t[%o]\n", 2048);
 	ft_print_result(mr, or, __LINE__);
 
-	mr = ft_printf("MINE>\t[% o]\n", 777);
+    mr = ft_printf("MINE>\t[% o]\n", 777);
 	or = printf("ORIG>\t[% o]\n", 777);
 	ft_print_result(mr, or, __LINE__);
 

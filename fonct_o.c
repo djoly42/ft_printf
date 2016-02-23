@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fonct_u.c                                          :+:      :+:    :+:   */
+/*   fonct_o.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,9 +12,17 @@
 
 #include "ft_printf.h"
 
-int                     fonct_u(t_env *env)
+int     ft_octalnbr(unsigned long int nb)
 {
-	env->arglen = ft_unbrlen((unsigned int)ARG);
+    if (nb > 7)
+        return ((nb % 8) + 10 * ft_octalnbr(nb / 8));
+    return (nb);
+}
+
+
+int                     fonct_o(t_env *env)
+{
+	env->arglen = ft_unbrlen((unsigned long int)ARG);
  //ft_putnbr(env->arglen);
     if (FNDFLAGS[2] != 1 && FNDFLAGS[9] == 1 && NBR != -1 &&  NBRPREC != -1 ) //.
     	RET = RET + ft_putspace(NBR - NBRPREC);
@@ -24,7 +32,7 @@ int                     fonct_u(t_env *env)
 	    RET = RET + ft_putzero2(NBRPREC - env->arglen);
     if (FNDFLAGS[2] != 1 && FNDFLAGS[1] == 1 && NBR != -1)
 	    RET = RET + ft_putzero2(NBR - env->arglen);
-    RET = RET + ft_putnbr((unsigned int)ARG);
+    RET = RET + ft_putnbr(ft_octalnbr((unsigned long int)ARG));
    // ft_putnbr(RET);
     if (FNDFLAGS[2] == 1 && FNDFLAGS[9] == 1 && NBRPREC != -1 && NBR != -1)//.
 	    RET = RET + ft_putspace(NBR - NBRPREC);
