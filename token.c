@@ -42,19 +42,19 @@ void    ft_re_init_env(t_env *env)//, const char *format)
 void ft_init_list2(t_env *env)
 {
 	env->fonction[0] = fonct_s;
-	env->fonction[1] = fonct_d;
+	env->fonction[1] = fonct_s;
 	env->fonction[2] = fonct_d;
 	env->fonction[3] = fonct_d;
-	env->fonction[4] = fonct_u;
+	env->fonction[4] = fonct_d;
 	env->fonction[5] = fonct_u;
 	env->fonction[6] = fonct_o;
-	env->fonction[7] = fonct_u;
+	env->fonction[7] = fonct_o;
 	env->fonction[8] = fonct_u;
 	env->fonction[9] = fonct_u;
 	env->fonction[10] = fonct_u;
 	env->fonction[11] = fonct_u;
 	env->fonction[12] = fonct_c;
-	env->fonction[13] = fonct_u;
+	env->fonction[13] = fonct_c;
 
 
 

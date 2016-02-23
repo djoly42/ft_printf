@@ -90,7 +90,7 @@ mr = ft_printf("MINE>\t[%o]\n", -2);
 
 
 
-
+//10
 	mr = ft_printf("MINE>\t[%o]\n", 2048);
 	or = printf("ORIG>\t[%o]\n", 2048);
 	ft_print_result(mr, or, __LINE__);
@@ -147,7 +147,7 @@ mr = ft_printf("MINE>\t[%o]\n", -2);
 	or = printf("ORIG>\t[%-0+10o]\n", 2048);
 	ft_print_result(mr, or, __LINE__);
 
-
+//24
 	mr = ft_printf("MINE>\t[%#-0+10o]\n", 2048);
 	or = printf("ORIG>\t[%#-0+10o]\n", 2048);
 	ft_print_result(mr, or, __LINE__);
