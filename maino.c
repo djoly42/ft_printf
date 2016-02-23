@@ -133,5 +133,108 @@ int	main(void)
 	or = printf(   "ORIG>\t[%18.12o]\n", 0777777777);
 	ft_print_result(mr, or, __LINE__);
 
+
+  /* Memes tests avec les %o */
+
+  ft_printf("%d\n", ft_printf("1octal 1 %o octal 2 %o\n", 42, -42));
+  printf("%d\n\n", printf("1octal 1 %o octal 2 %o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("2octal 1 %   o octal 2 % o\n", 42, -42));
+  printf("%d\n\n", printf("3octal 1 %   o octal 2 % o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("4octal 1 %12o octal 2 %12o\n", 42, -42));
+  printf("%d\n\n", printf("4octal 1 %12o octal 2 %12o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("4octal 1 %-12o octal 2 %-12o\n", 42, -42));
+  printf("%d\n\n", printf("4octal 1 %-12o octal 2 %-12o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("5octal 1 %0o octal 2 %0o\n", 42, -42));
+  printf("%d\n\n", printf("5octal 1 %0o octal 2 %0o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("6octal 1 %012o octal 2 %012o\n", 42, -42));
+  printf("%d\n\n", printf("6octal 1 %012o octal 2 %012o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("7octal 1 %-012o octal 2 %012o\n", 42, -42));
+  printf("%d\n\n", printf("7octal 1 %-012o octal 2 %012o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("8octal 1 %*o octal 2 %*o\n", 42, 6, 6, 6));
+  printf("%d\n\n", printf("8octal 1 %*o octal 2 %*o\n\n", 42, 6, 6, 6));
+
+  ft_printf("%d\n", ft_printf("9octal 1 %+o octal 2 %+o\n", 42, 6, -42, 6));
+  printf("%d\n\n", printf("9octal 1 %+o octal 2 %+o\n\n", 42, 6, -42, 6));
+
+  ft_printf("%d\n", ft_printf("10octal 1 %+12o octal 2 %+12o\n", 42, 6, -42, 6));
+  printf("%d\n\n", printf("10octal 1 %+12o octal 2 %+12o\n\n", 42, 6, -42, 6));
+
+  ft_printf("%d\n", ft_printf("11octal 1 %*12o octal 2 %*12o\n", 42, -6, -42, 6));
+  printf("%d\n\n", printf("11octal 1 %*12o octal 2 %*12o\n\n", 42, -6, -42, 6));
+
+  ft_printf("%d\n", ft_printf("12octal 1 %-+5o octal 2 %-+5o\n", 42, -42));
+  printf("%d\n\n", printf("12octal 1 %-+5o octal 2 %-+5o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("13octal 1 %-+05o octal 2 %-+05o\n", 42, -42));
+  printf("%d\n\n", printf("13octal 1 %-+05o octal 2 %-+05o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("14octal 1 %+-5o octal 2 %+-5o\n", 42, -42));
+  printf("%d\n\n", printf("14octal 1 %+-5o octal 2 %+-5o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("15octal 1 %.o octal 2 %.o\n", 42, -42));
+  printf("%d\n\n", printf("15octal 1 %.o octal 2 %.o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("16octal 1 %.6o octal 2 %.6o\n", 42, -42));
+  printf("%d\n\n", printf("16octal 1 %.6o octal 2 %.6o\n\n", 42, -42));
+
+  /* Memes tests avec les %o */
+
+  ft_printf("%d\n", ft_printf("1octal 1 %o octal 2 %o\n", 42, -42));
+  printf("%d\n\n", printf("1octal 1 %o octal 2 %o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("2octal 1 %   o octal 2 % o\n", 42, -42));
+  printf("%d\n\n", printf("3octal 1 %   o octal 2 % o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("4octal 1 %12o octal 2 %12o\n", 42, -42));
+  printf("%d\n\n", printf("4octal 1 %12o octal 2 %12o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("4octal 1 %-12o octal 2 %-12o\n", 42, -42));
+  printf("%d\n\n", printf("4octal 1 %-12o octal 2 %-12o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("5octal 1 %0o octal 2 %0o\n", 42, -42));
+  printf("%d\n\n", printf("5octal 1 %0o octal 2 %0o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("6octal 1 %012o octal 2 %012o\n", 42, -42));
+  printf("%d\n\n", printf("6octal 1 %012o octal 2 %012o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("7octal 1 %-012o octal 2 %012o\n", 42, -42));
+  printf("%d\n\n", printf("7octal 1 %-012o octal 2 %012o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("8octal 1 %*o octal 2 %*o\n", 42, 6, 6, 6));
+  printf("%d\n\n", printf("8octal 1 %*o octal 2 %*o\n\n", 42, 6, 6, 6));
+
+  ft_printf("%d\n", ft_printf("9octal 1 %+o octal 2 %+o\n", 42, 6, -42, 6));
+  printf("%d\n\n", printf("9octal 1 %+o octal 2 %+o\n\n", 42, 6, -42, 6));
+
+  ft_printf("%d\n", ft_printf("10octal 1 %+12o octal 2 %+12o\n", 42, 6, -42, 6));
+  printf("%d\n\n", printf("10octal 1 %+12o octal 2 %+12o\n\n", 42, 6, -42, 6));
+
+  ft_printf("%d\n", ft_printf("11octal 1 %*12o octal 2 %*12o\n", 42, -6, -42, 6));
+  printf("%d\n\n", printf("11octal 1 %*12o octal 2 %*12o\n\n", 42, -6, -42, 6));
+
+  ft_printf("%d\n", ft_printf("12octal 1 %-+5o octal 2 %-+5o\n", 42, -42));
+  printf("%d\n\n", printf("12octal 1 %-+5o octal 2 %-+5o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("13octal 1 %-+05o octal 2 %-+05o\n", 42, -42));
+  printf("%d\n\n", printf("13octal 1 %-+05o octal 2 %-+05o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("14octal 1 %+-5o octal 2 %+-5o\n", 42, -42));
+  printf("%d\n\n", printf("14octal 1 %+-5o octal 2 %+-5o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("15octal 1 %.o octal 2 %.o\n", 42, -42));
+  printf("%d\n\n", printf("15octal 1 %.o octal 2 %.o\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("16octal 1 %.6o octal 2 %.6o\n", 42, -42));
+  printf("%d\n\n", printf("16octal 1 %.6o octal 2 %.6o\n\n", 42, -42));
+
+
+
     return (0);
 }

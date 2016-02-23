@@ -21,8 +21,9 @@ RM = rm -f
 HEADERS = -I /
 
 SRC=ft_printf.c  token.c ft_put.c\
-fonct_d.c fonct_c.c fonct_u.c fonct_s.c ft_putchar.c ft_putnbr.c ft_putstr.c ft_atoi.c ft_strchr.c \
-ft_nbrlen.c \
+	fonct_d.c fonct_c.c fonct_u.c fonct_s.c fonct_o.c \
+	ft_putchar.c ft_putnbr.c ft_putstr.c ft_atoi.c ft_strchr.c \
+	ft_nbrlen.c \
 
 OBJ = $(SRC:.c=.o)
 
