@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int     ft_octalnbr(unsigned long int nb)
+unsigned long int     ft_octalnbr(unsigned long  int nb)
 {
     if (nb > 7)
         return ((nb % 8) + 10 * ft_octalnbr(nb / 8));
@@ -22,7 +22,7 @@ int     ft_octalnbr(unsigned long int nb)
 
 int                     fonct_o(t_env *env)
 {
-	env->arglen = ft_unbrlen((unsigned long int)ARG);
+	env->arglen = ft_unbrlen(ft_octalnbr((unsigned int)ARG));
  //ft_putnbr(env->arglen);
     if (FNDFLAGS[2] != 1 && FNDFLAGS[9] == 1 && NBR != -1 &&  NBRPREC != -1 ) //.
     	RET = RET + ft_putspace(NBR - NBRPREC);
@@ -32,6 +32,8 @@ int                     fonct_o(t_env *env)
 	    RET = RET + ft_putzero2(NBRPREC - env->arglen);
     if (FNDFLAGS[2] != 1 && FNDFLAGS[1] == 1 && NBR != -1)
 	    RET = RET + ft_putzero2(NBR - env->arglen);
+    if (FNDFLAGS[0] == 1)
+	    RET = RET + ft_putzero2(1);
     RET = RET + ft_putnbr(ft_octalnbr((unsigned long int)ARG));
    // ft_putnbr(RET);
     if (FNDFLAGS[2] == 1 && FNDFLAGS[9] == 1 && NBRPREC != -1 && NBR != -1)//.
