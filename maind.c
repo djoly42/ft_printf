@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 17:04:56 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/24 16:14:43 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/24 16:56:47 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -432,8 +432,14 @@ int	main(void)
 		mr = ft_printf("MINE>\t[%5.d], [%5.0d]\n", 0, 0);
 		or = printf("ORIG>\t[%5.d], [%5.0d]\n", 0, 0);
 		ft_print_result(mr, or, __LINE__);
+//test zone
+		mr = ft_printf("MINE>\t[%zhd]\n", 4294967296);
+		or = printf("ORIG>\t[%zhd]\n", 4294967296);
+		ft_print_result(mr, or, __LINE__);
 
-
+		mr = ft_printf("MINE>\t[%jhd]\n", 9223372036854775807);
+		or = printf("ORIG>\t[%jhd]\n", 9223372036854775807);
+		ft_print_result(mr, or, __LINE__);
 
     return(0);
 }
