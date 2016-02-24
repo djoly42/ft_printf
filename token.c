@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:30:41 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/18 15:26:05 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/24 09:56:05 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void ft_init_list2(t_env *env)
 	env->fonction[2] = fonct_d;
 	env->fonction[3] = fonct_d;
 	env->fonction[4] = fonct_d;
-	env->fonction[5] = fonct_u;
+	env->fonction[5] = fonct_d;
 	env->fonction[6] = fonct_o;
 	env->fonction[7] = fonct_o;
 	env->fonction[8] = fonct_u;
@@ -55,7 +55,7 @@ void ft_init_list2(t_env *env)
 	env->fonction[11] = fonct_x;
 	env->fonction[12] = fonct_c;
 	env->fonction[13] = fonct_c;
-
+//	env->fonction[14] = print_percent;
 
 
 }

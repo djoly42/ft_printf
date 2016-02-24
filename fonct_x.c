@@ -22,6 +22,8 @@ static int hexa_len(unsigned int nb)
 {
     int i;
 
+	if (nb == 0)
+		return (1);
     i = 0;
     while (nb != 0)
     {
@@ -72,7 +74,10 @@ int                     fonct_x(t_env *env)
     if (FNDFLAGS[2] != 1 && FNDFLAGS[1] == 1 && NBR != -1)
 	    RET = RET + ft_putzero2(NBR - env->arglen);
 
-        print_hexa((unsigned int)ARG, env);
+    if ((unsigned int)ARG == 0)
+		ft_putchar('0');
+	else
+		print_hexa((unsigned int)ARG, env);
     RET = RET + ARGLEN;
    // ft_putnbr(RET);
     if (FNDFLAGS[2] == 1 && FNDFLAGS[9] == 1 && NBRPREC != -1 && NBR != -1)//.

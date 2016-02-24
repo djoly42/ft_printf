@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 12:40:46 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/18 11:12:54 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/24 09:57:06 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,12 +115,19 @@ int 	ft_check_token(t_env *env)
 			//ft_putstr(">>>DANS IF<<<\n");
 			ifind = ft_check_flags(env);
 		}
+
 		if (!(ifind))
 		{
+			if (FORMAT[IFOR] == '%')
+			{
+				print_percent(env);
+			//	IFOR = IFOR + 1;
+			}
+			else {
 			ft_putstr(">>char non reconue>>");
 			ft_putchar(FORMAT[IFOR]);
 			ft_putstr("<<");
-			//if ( )
+			}
 			IFOR = IFOR + 1;
 		}
 		if (FORMAT[IFOR] == '\0')
