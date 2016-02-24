@@ -44,33 +44,34 @@ static int print_hexa(unsigned int nb, t_env *env)
             ft_putchar(HEXA[nb % 16]);
         else
             ft_putchar(HEXA2[nb % 16]);
-
-        return (i); 
+        return (i);
     }
     return (i);
 }
-    
+
 int                     fonct_x(t_env *env)
 {
 	env->arglen = hexa_len((unsigned int)ARG);
  //ft_putnbr(env->arglen);
+ 	if (FNDFLAGS[0] == 1 && NBR != -1)//#
+     	NBR = NBR - 2;
     if (FNDFLAGS[2] != 1 && FNDFLAGS[9] == 1 && NBR != -1 &&  NBRPREC != -1 ) //.
     	RET = RET + ft_putspace(NBR - NBRPREC);
     else if (FNDFLAGS[2] == -1 && FNDFLAGS[1] == -1 && NBR != -1) // pas de - et nbr pas de 0
     {
-        if (FNDFLAGS[0] == 1)//#
-            NBR = NBR - 1;
+
         RET = RET + ft_putspace(NBR - env->arglen);
     }
+	if (FNDFLAGS[0] == 1)//#
+	{
+		RET = RET + ft_putzero2(1);
+		RET = RET + ft_putchar('x');
+	}
     if (NBRPREC != -1 && NBRPREC > env->arglen )//.
 	    RET = RET + ft_putzero2(NBRPREC - env->arglen);
     if (FNDFLAGS[2] != 1 && FNDFLAGS[1] == 1 && NBR != -1)
 	    RET = RET + ft_putzero2(NBR - env->arglen);
-    if (FNDFLAGS[0] == 1)//#
-    {
-	    RET = RET + ft_putzero2(1);
-        RET = RET + ft_putchar('x');
-    }
+
         print_hexa((unsigned int)ARG, env);
     RET = RET + ARGLEN;
    // ft_putnbr(RET);
@@ -78,8 +79,8 @@ int                     fonct_x(t_env *env)
 	    RET = RET + ft_putspace(NBR - NBRPREC);
     else if (FNDFLAGS[2] == 1 && NBR != -1 && NBR > env->arglen && FNDFLAGS[9] == -1) // - et nbr
 		{
-        if (FNDFLAGS[0] == 1)
-            NBR = NBR - 1;
+        //if (FNDFLAGS[0] == 1)
+        //    NBR = NBR - 2;
         RET = RET + ft_putspace(NBR - env->arglen);
         }
     //ft_putnbr(RET);
@@ -89,7 +90,7 @@ return (1);
 int     fonct_x(t_env *env)
 {
 //    char *str;
-        
+
   //  str = (char*)malloc(sizeof(char*));
     if (FNDFLAGS[9] == 1 && NBRPREC == -1)
             return (0);

@@ -79,7 +79,7 @@ int	main(void)
 	ft_print_result(mr, or, __LINE__);
 
 	printf("\n\033[1;37m=[HARD]= %%x and %%X ========\033[0m\n\n");
-
+//8
 	mr = ft_printf("MINE>\t[%#+9x]\n", 177215);
 	or = printf("ORIG>\t[%#+9x]\n", 177215);
 	ft_print_result(mr, or, __LINE__);
