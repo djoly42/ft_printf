@@ -92,6 +92,17 @@ static void print_hexall(long long unsigned int nb, t_env *env)
 	}
 }
 
+static void print_hexaj(uintmax_t nb, t_env *env)
+{
+	if (nb != 0)
+	{
+		print_hexall(nb / 16, env);
+		if (ITOK == 10)
+			ft_putchar(HEXA[nb % 16]);
+		else
+			ft_putchar(HEXA2[nb % 16]);
+	}
+}
 
 static int print_hexa(t_env *env)
 {
@@ -100,6 +111,8 @@ static int print_hexa(t_env *env)
 		print_hexal((long long unsigned int)ARG, env);
 	else if (FNDFLAGS[6] == 2)
 		print_hexall((long long unsigned int)ARG, env);
+	else if (FNDFLAGS[7] == 1)
+		print_hexaj((uintmax_t)ARG, env);
 	else
 		print_hexai((unsigned int)ARG, env);
 }
@@ -121,6 +134,8 @@ static int ft_test0(t_env *env)
 		else if (FNDFLAGS[6] == 2 && (long long unsigned int)ARG == 0)
 			return (1);
 		else if ((long unsigned int)ARG == 0)
+			return (1);
+		else if (FNDFLAGS[7] == 1 && (uintmax_t)ARG == 0)
 			return (1);
 		else if (FNDFLAGS[6] == -1 && (unsigned int)ARG == 0)
 			return (1);

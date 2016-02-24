@@ -253,12 +253,12 @@ mr = ft_printf("MINE>\t[%x]\n", 4294967296 );
 	or = printf("ORIG>\t[%lx]\n", 4294967296);
 	ft_print_result(mr, or, __LINE__);
 
-	mr = ft_printf("MINE>\t[%llx]\n", 4294967296);
-	or = printf("ORIG>\t[%llx]\n", 4294967296);
+	mr = ft_printf("MINE>\t[%jx]\n", 4294967296);
+	or = printf("ORIG>\t[%jx]\n", 4294967296);
 	ft_print_result(mr, or, __LINE__);
 
-mr = ft_printf("MINE>\t[%x]\n", 0 );
-	or = printf("ORIG>\t[%x]\n", 0);
+mr = ft_printf("MINE>\t[%jx]\n", 0 );
+	or = printf("ORIG>\t[%jx]\n", 0);
 	ft_print_result(mr, or, __LINE__);
 
 	mr = ft_printf("MINE>\t[%lx]\n", 0);
