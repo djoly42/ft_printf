@@ -51,8 +51,8 @@ void ft_init_list2(t_env *env)
 	env->fonction[7] = fonct_o;
 	env->fonction[8] = fonct_u;
 	env->fonction[9] = fonct_u;
-	env->fonction[10] = fonct_u;
-	env->fonction[11] = fonct_u;
+	env->fonction[10] = fonct_x;
+	env->fonction[11] = fonct_x;
 	env->fonction[12] = fonct_c;
 	env->fonction[13] = fonct_c;
 

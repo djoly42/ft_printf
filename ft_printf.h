@@ -20,6 +20,7 @@
 //# include "libft/includes/libft.h"
 # define TOKEN "sSpdDioOuUxXcC"
 # define FLAGS "#0-+ hljz."
+# define HEXA "0123456789abcdef"
 
 # define FONCT env->fonct
 # define FORMAT env->format
