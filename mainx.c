@@ -61,7 +61,7 @@ int	main(void)
 	mr = ft_printf("MINE>\t[%X]\n", 6777215);
 	or = printf("ORIG>\t[%X]\n", 6777215);
 	ft_print_result(mr, or, __LINE__);
-
+//4
 	mr = ft_printf("MINE>\t[%#x]\n", 1677215);
 	or = printf("ORIG>\t[%#x]\n", 1677215);
 	ft_print_result(mr, or, __LINE__);
