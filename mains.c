@@ -93,13 +93,6 @@ int	main(void)
 
 	printf("\033[1;37m======== end %%s =====\033[0m\n\n");
 
-	mr = ft_printf("MINE>\t[%5.4s]\n", "ok");
-	or = printf(   "ORIG>\t[%5.4s]\n", "ok");
-	ft_print_result(mr, or, __LINE__);
-
-	mr = ft_printf("MINE>\t[%-5.4s]\n", "ok");
-	or = printf(   "ORIG>\t[%-5.4s]\n", "ok");
-	ft_print_result(mr, or, __LINE__);
 
   /* Memes tests avec les %s */
 
@@ -140,6 +133,31 @@ int	main(void)
   ft_printf("%d\n", ft_printf("16string 1 %.6s string 2 %.6s\n", "toto", "bonjour"));
   printf("%d\n\n", printf("16string 1 %.6s string 2 %.6s\n\n", "toto", "bonjour"));
 
+
+  	mr = ft_printf("MINE>\t[%5.4s]\n", "ok");
+  	or = printf(   "ORIG>\t[%5.4s]\n", "ok");
+  	ft_print_result(mr, or, __LINE__);
+
+  	mr = ft_printf("MINE>\t[%-5.4s]\n", "ok");
+  	or = printf(   "ORIG>\t[%-5.4s]\n", "ok");
+  	ft_print_result(mr, or, __LINE__);
+
+
+  mr = ft_printf("MINE>\t[%5.2s] is a string\n", "");
+  or = printf("ORIG>\t[%5.2s] is a string\n", "");
+  ft_print_result(mr, or, __LINE__);
+
+  mr = ft_printf("MINE>\t[%-5.2s] is a string\n", "");
+  or = printf("ORIG>\t[%-5.2s] is a string\n", "");
+  ft_print_result(mr, or, __LINE__);
+
+  mr = ft_printf("MINE>\t[%5.2s] is a string\n", "this");
+  or = printf("ORIG>\t[%5.2s] is a string\n", "this");
+  ft_print_result(mr, or, __LINE__);
+
+  mr = ft_printf("MINE>\t[%-5.2s] is a string\n", "this");
+  or = printf("ORIG>\t[%-5.2s] is a string\n", "this");
+  ft_print_result(mr, or, __LINE__);
 
 
     return (0);

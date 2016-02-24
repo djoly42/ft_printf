@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 17:04:56 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/18 13:59:53 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/24 16:14:43 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -404,6 +404,36 @@ int	main(void)
 	printf("Test de cliffre sans l : %d, et %d\n", 32147483647, -32147483647);
 	printf("Test de cliffre avec l : %ld, et %ld\n", 32147483647, -32147483647);
 	ft_printf("Test de cliffre avec l : %ld, et %ld\n\n", 32147483647, -32147483647);
+
+	mr = ft_printf("MINE>\t[%+d]\t[% +d]\t[%+ d]\t[%   +d]\t[%  ++d]\n", 0, 0, 42, 42, 42);
+	or = printf("ORIG>\t[%+d]\t[% +d]\t[%+ d]\t[%   +d]\t[%  ++d]\n", 0, 0, 42, 42, 42);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%0+5d]\t[%lld]\n", 42, -9223372036854775808);
+	or = printf("ORIG>\t[%0+5d]\t[%lld]\n", 42, -9223372036854775808);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%4.15d]\n", 42);
+	or = printf("ORIG>\t[%4.15d]\n", 42);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%+10.5d]\n", 4242);
+	or = printf("ORIG>\t[%+10.5d]\n", 4242);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%03.2d]\n", -1);
+	or = printf("ORIG>\t[%03.2d]\n", -1);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%.d], [%.0d]\n", 0, 0);
+	or = printf("ORIG>\t[%.d], [%.0d]\n", 0, 0);
+	ft_print_result(mr, or, __LINE__);
+
+		mr = ft_printf("MINE>\t[%5.d], [%5.0d]\n", 0, 0);
+		or = printf("ORIG>\t[%5.d], [%5.0d]\n", 0, 0);
+		ft_print_result(mr, or, __LINE__);
+
+
 
     return(0);
 }

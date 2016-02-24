@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 14:45:27 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/18 15:32:57 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/24 16:33:19 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,37 @@ int	main(void)
 
 		    ft_printf("%d\n", ft_printf("11unsigned 1 %*12u unsigned 2 %*12u unsigned 3 %*12u\n", 42, -6, -42, 6, 12, 6));
 		    printf("%d\n\n", printf("11unsigned 1 %*12u unsigned 2 %*12u unsigned 3 %*12u\n", 42, -6, -42, 6, 12, 6));
+
+			mr = ft_printf("MINE>\t[%5u]\n", 4294967295);
+			or = printf(   "ORIG>\t[%5u]\n", 4294967295);
+			ft_print_result(mr, or, __LINE__);
+
+			mr = ft_printf("MINE>\t[%lu]\n", 4294967295);
+			or = printf(   "ORIG>\t[%lu]\n", 4294967295);
+			ft_print_result(mr, or, __LINE__);
+
+			mr = ft_printf("MINE>\t[%lu]\n", -42);
+			or = printf(   "ORIG>\t[%lu]\n", -42);
+			ft_print_result(mr, or, __LINE__);
+//11
+			mr = ft_printf("MINE>\t[%llu]\n", 4999999999);
+			or = printf(   "ORIG>\t[%llu]\n", 4999999999);
+			ft_print_result(mr, or, __LINE__);
+
+			mr = ft_printf("MINE>\t[%ju]\n", 4999999999);
+			or = printf(   "ORIG>\t[%ju]\n", 4999999999);
+			ft_print_result(mr, or, __LINE__);
+
+			mr = ft_printf("MINE>\t[%hU]\n", 4294967296);
+			or = printf(   "ORIG>\t[%hU]\n", 4294967296);
+			ft_print_result(mr, or, __LINE__);
+
+			mr = ft_printf("MINE>\t[%U]\n", 4294967296);
+			or = printf(   "ORIG>\t[%U]\n", 4294967296);
+			ft_print_result(mr, or, __LINE__);
+
+
+
 
 			return (0);
 		}

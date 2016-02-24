@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:30:41 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/24 09:56:05 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/24 16:39:58 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ void ft_init_list2(t_env *env)
 {
 	env->fonction[0] = fonct_s;
 	env->fonction[1] = fonct_s;
-	env->fonction[2] = fonct_d;
+	env->fonction[2] = fonct_p;
 	env->fonction[3] = fonct_d;
 	env->fonction[4] = fonct_d;
-	env->fonction[5] = fonct_d;
+	env->fonction[5] = fonct_p;
 	env->fonction[6] = fonct_o;
 	env->fonction[7] = fonct_o;
 	env->fonction[8] = fonct_u;
