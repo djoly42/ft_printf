@@ -429,8 +429,8 @@ int	main(void)
 	or = printf("ORIG>\t[%06.2d]\n", -1);
 	ft_print_result(mr, or, __LINE__);
 	
-    mr = ft_printf("MINE>\t[%.d], [%.0d]\n", 0, 0);
-	or = printf("ORIG>\t[%.d], [%.0d]\n", 0, 0);
+    mr = ft_printf("MINE>\t[%.d], [%.2d]\n", 0, 0);
+	or = printf("ORIG>\t[%.d], [%.2d]\n", 0, 0);
 	ft_print_result(mr, or, __LINE__);
 
 		mr = ft_printf("MINE>\t[%5.d], [%5.0d]\n", 0, 0);
