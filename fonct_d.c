@@ -39,6 +39,8 @@ static void ft_flag_prec(t_env *env)
 
 	int pos;
     if (NBR == -1 && NBRPREC == -1)//
+    {
+        ft_putstr("return");
         return ;
     if (NBRPREC < 1)
         NBRPREC = 1;
