@@ -38,6 +38,8 @@ static void ft_flag_prec(t_env *env)
 {
 
 	int pos;
+    if (NBR == -1)
+        return ; 
 	if (NBRPREC != -1 && NBRPREC < ft_nbrlen((int)ARG))
 		NBRPREC = ft_nbrlen((int)ARG);
 	if (NBR < ft_nbrlen((int)ARG))
@@ -57,9 +59,11 @@ static void ft_flag_prec(t_env *env)
 	ft_putnbr(NBRPREC);
 	ft_putstr("<<");
 */
-    if (NBR != -1 && FNDFLAGS[2] != 1) // nbr sans -
+    if (NBR > NBRPREC && FNDFLAGS[2] != 1) // nbr sans -
     {
 	    if (FNDFLAGS[3] == 1) // +
+		    NBR = NBR - 1;
+        if ((int)ARG < 0)
 		    NBR = NBR - 1;
         RET = RET + ft_putspace(NBR - NBRPREC);
     }
@@ -79,7 +83,7 @@ static void ft_flag_prec(t_env *env)
 
 	    }
 		RET = RET + ft_putzero2(NBRPREC - ft_nbrlen((int)ARG));
-	}
+    }
 		if (FNDFLAGS[5] == -1 && FNDFLAGS[6] == -1 && FNDFLAGS[7] == -1 && FNDFLAGS[8] == -1 && (int)ARG < 0)//          (long long int)ARG < 9223372036854775808)//  (long long int)ARG < 0 )//&& FNDFLAGS[2] != 1) // - nest pas encore ecrie, voir putzero
 		{
 	//		ft_putstr(">>DANS IF1>>");
