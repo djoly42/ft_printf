@@ -54,12 +54,17 @@ int	ft_putnbr(long long int nbr)
 		ft_putstr("-2147483648");
 		ret = 11;
 	}
+    if (nbr == -9223372036854775808)
+    {
+		ft_putstr("-9223372036854775808");
+		ret = 20;
+	}
 	else
 	{
 		if (nbr < 0)
 		{
 			ft_putchar('-');
-			nbr = -nbr;
+			nbr = (-1) * nbr;
 			ret++;
 		}
 		if (nbr >= 10)

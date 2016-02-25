@@ -71,8 +71,11 @@ etourne 3 OK
 			IFOR = IFOR + 1;
 		}
 		else if (ifind == 6 && FORMAT[IFOR + 1] == 'l')
-			FNDFLAGS[ifind] = 2;
-		else
+        {
+            FNDFLAGS[ifind] = 2;
+			IFOR = IFOR + 1;
+		}	
+        else
 			FNDFLAGS[ifind] = 1;
 		IFOR = IFOR + 1;
 		//ft_putstr(">>>>LOVE<<<<");
