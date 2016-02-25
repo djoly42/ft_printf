@@ -249,10 +249,11 @@ int	main(void)
 	mr = ft_printf("MINE>\t[%.1d]\n", 10000);
 	or = printf(   "ORIG>\t[%.1d]\n", 10000);
 	ft_print_result(mr, or, __LINE__);
-
+//41
 	mr = ft_printf("MINE>\t[%-.0d]\n", 10000);
 	or = printf(   "ORIG>\t[%-.0d]\n", 10000);
 	ft_print_result(mr, or, __LINE__);
+
 //42
 	mr = ft_printf("MINE>\t[%5.4d]\n", 10);
 	or = printf(   "ORIG>\t[%5.4d]\n", 10);
@@ -444,6 +445,14 @@ int	main(void)
 		mr = ft_printf("MINE>\t[%jhd]\n", 9223372036854775807);
 		or = printf("ORIG>\t[%jhd]\n", 9223372036854775807);
 		ft_print_result(mr, or, __LINE__);
+//41
+	mr = ft_printf("MINE>\t[%-.0d]\n", 10000);
+	or = printf(   "ORIG>\t[%-.0d]\n", 10000);
+	ft_print_result(mr, or, __LINE__);
+//41
+	mr = ft_printf("MINE>\t[%.0d]\n", 10000);
+	or = printf(   "ORIG>\t[%.0d]\n", 10000);
+	ft_print_result(mr, or, __LINE__);
 
     return(0);
 }
