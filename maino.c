@@ -279,22 +279,33 @@ mr = ft_printf("MINE>\t[%o]\n", -2);
 
   ft_printf("%d\n", ft_printf("16octal 1 %.6o octal 2 %.6o\n", 42, -42));
   printf("%d\n\n", printf("16octal 1 %.6o octal 2 %.6o\n\n", 42, -42));
-
+//31
   mr = ft_printf("MINE>\t[%-5.10o]\n", 2500);
   	or = printf("ORIG>\t[%-5.10o]\n", 2500);
   	ft_print_result(mr, or, __LINE__);
-
+//32
   mr = ft_printf("MINE>\t[%.o], [%.0o]\n", 0, 0);
   	or = printf("ORIG>\t[%.o], [%.0o]\n", 0, 0);
   	ft_print_result(mr, or, __LINE__);
-
+//33
 	mr = ft_printf("MINE>\t[%5.o], [%5.0o]\n", 0, 0);
     	or = printf("ORIG>\t[%5.o], [%5.0o]\n", 0, 0);
     	ft_print_result(mr, or, __LINE__);
-
+//34
     mr = ft_printf("MINE>\t[%#.o], [%#.0o]\n", 0, 0);
     	or = printf("ORIG>\t[%#.o], [%#.0o]\n", 0, 0);
     	ft_print_result(mr, or, __LINE__);
-
+//35
+	mr = ft_printf("MINE>\t[%#.o], [%#.0o]\n", 1, 1);
+	or = printf("ORIG>\t[%#.o], [%#.0o]\n", 1, 1);
+	ft_print_result(mr, or, __LINE__);
+//36
+	mr = ft_printf("MINE>\t[%#3.o], [%#3.0o]\n", 1, 1);
+	or = printf("ORIG>\t[%#3.o], [%#3.0o]\n", 1, 1);
+	ft_print_result(mr, or, __LINE__);
+//37
+	mr = ft_printf("MINE>\t[%#3.o], [%#3.0o]\n", 0, 0);
+	or = printf("ORIG>\t[%#3.o], [%#3.0o]\n", 0, 0);
+	ft_print_result(mr, or, __LINE__);
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 20:09:51 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/24 17:40:46 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/26 10:35:55 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	ft_putnbr2(long long unsigned int nbr)
 		}
 		if (nbr >= 10)
 		{
-			ret = ret + ft_putnbr(nbr / 10);
-			ret = ret + ft_putnbr(nbr % 10);
+			ret = ret + ft_putnbr2(nbr / 10);
+			ret = ret + ft_putnbr2(nbr % 10);
 		}
 		else
 		{
@@ -52,12 +52,12 @@ int	ft_putnbr(long long int nbr)
 	if (nbr == -2147483648)
 	{
 		ft_putstr("-2147483648");
-		ret = 11;
+		return (11);
 	}
     if (nbr == -9223372036854775808)
     {
 		ft_putstr("-9223372036854775808");
-		ret = 20;
+		return (20);
 	}
 	else
 	{

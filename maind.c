@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 17:04:56 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/24 16:56:47 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/26 09:26:14 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -425,11 +425,11 @@ int	main(void)
 	mr = ft_printf("MINE>\t[%03.2d]\n", -1);
 	or = printf("ORIG>\t[%03.2d]\n", -1);
 	ft_print_result(mr, or, __LINE__);
-  
+
     mr = ft_printf("MINE>\t[%06.2d]\n", -1);
 	or = printf("ORIG>\t[%06.2d]\n", -1);
 	ft_print_result(mr, or, __LINE__);
-	
+
     mr = ft_printf("MINE>\t[%.d], [%.0d]\n", 0, 0);
 	or = printf("ORIG>\t[%.d], [%.0d]\n", 0, 0);
 	ft_print_result(mr, or, __LINE__);
@@ -442,18 +442,26 @@ int	main(void)
 		or = printf("ORIG>\t[%zhd]\n", 4294967296);
 		ft_print_result(mr, or, __LINE__);
 
+		mr = ft_printf("MINE>\t[%hzd]\n", 4294967296);
+		or = printf("ORIG>\t[%hzd]\n", 4294967296);
+		ft_print_result(mr, or, __LINE__);
+//59
 		mr = ft_printf("MINE>\t[%jhd]\n", 9223372036854775807);
 		or = printf("ORIG>\t[%jhd]\n", 9223372036854775807);
 		ft_print_result(mr, or, __LINE__);
-//41
+//60
+		mr = ft_printf("MINE>\t[%hjd]\n", 9223372036854775807);
+		or = printf("ORIG>\t[%hjd]\n", 9223372036854775807);
+		ft_print_result(mr, or, __LINE__);
+//41 61
 	mr = ft_printf("MINE>\t[%-.0d]\n", 10000);
 	or = printf(   "ORIG>\t[%-.0d]\n", 10000);
 	ft_print_result(mr, or, __LINE__);
-//41
+//41 62
 	mr = ft_printf("MINE>\t[%.d]\n", 10000);
 	or = printf(   "ORIG>\t[%.d]\n", 10000);
 	ft_print_result(mr, or, __LINE__);
-//45
+//45 63
 	mr = ft_printf("MINE>\t[%-+8.4d]\n", 10);
 	or = printf(   "ORIG>\t[%-+8.4d]\n", 10);
 	ft_print_result(mr, or, __LINE__);
