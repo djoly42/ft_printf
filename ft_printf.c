@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 12:40:46 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/24 09:57:06 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/26 16:09:17 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ etourne 3 OK
         {
             FNDFLAGS[ifind] = 2;
 			IFOR = IFOR + 1;
-		}	
+		}
         else
 			FNDFLAGS[ifind] = 1;
 		IFOR = IFOR + 1;
@@ -91,8 +91,10 @@ int 	ft_check_token(t_env *env)
 
 	IFOR = IFOR + 1;
     ifind = 0;
-    ARG = va_arg(AP, void *);
-	//retourne 3 OK
+	if (env->error == 0)
+    	ARG = va_arg(AP, void *);
+	else
+		env->error = 0;
   /* 	ft_putstr("FORMAT>>>");
    	ft_putchar(FORMAT[IFOR]);
    	ft_putstr("<<<");
@@ -103,19 +105,9 @@ int 	ft_check_token(t_env *env)
 		{
 			ft_putstr("find|");
 			return (0);
-		}/*find 0 ok
-		  ft_putstr("find|");
-		  ft_putnbr(find);
-		  ft_putchar('|');
-		 */
-/*
-		ft_putstr(">>>FORNAT[IFOR]>>>");
-		ft_putchar(FORMAT[IFOR]);
-		ft_putstr("<<<\n");
-*/
+		}
 		if ( !(ifind = ft_check_nbr(env)))//))
 		{
-			//ft_putstr(">>>DANS IF<<<\n");
 			ifind = ft_check_flags(env);
 		}
 
@@ -127,9 +119,11 @@ int 	ft_check_token(t_env *env)
 			//	IFOR = IFOR + 1;
 			}
 			else {
-			ft_putstr(">>char non reconue>>");
-			ft_putchar(FORMAT[IFOR]);
-			ft_putstr("<<");
+			//ft_putstr(">>char non reconue>>");
+			env->error = 1;
+			RET = RET + ft_putchar(FORMAT[IFOR]);
+			//	ft_putstr("<<");
+			return (0);
 			}
 			IFOR = IFOR + 1;
 		}
@@ -138,49 +132,22 @@ int 	ft_check_token(t_env *env)
 			//ft_putstr("find|");
 			return (0);
 		}
-		//IFOR = IFOR + ifind;
-		// c 1 0k  +3cOK
-		/*
-		   ft_putstr("ifind>>>");
-		   ft_putnbr(ifind);
-		   ft_putstr("<<<");
-		 */
-		//	 ft_putstr("HATE");
-		//		return (-1);
-		//}
 	}
-// TEST FLAG TROUVER
-/*
-ft_putstr("FNDFLAGS>>>");
-ft_putnbr(FNDFLAGS[3]);
-ft_putstr("<<<");
-*/
 	ITOK = find - TOKEN;
-/*
-ft_putstr("NBR>>");
-ft_putnbr(NBR);
-ft_putstr("<<");
-ft_putstr("NBRPREC>>");
-ft_putnbr(NBRPREC);
-ft_putstr("<<");
-*/
-//ft_putchar('D');
-	//ft_putnbr(ITOK);
 	env->fonction[ITOK](env); // deconne 3
 	return (1);
 }
 
 void    run_format(t_env *env)
 {
-//ft_putstr(env->format);
+
     while (FORMAT[IFOR] != '\0')
 	{
-		//ft_putchar('A');
-		//ft_putchar(FORMAT[IFOR]);
 		if (FORMAT[IFOR] == '%')
 		{
-		//	ft_putstr("1");
-			if (FORMAT[IFOR + 1] == '%')
+			if (FORMAT[IFOR + 1] == '\0')
+				return ;
+			else if (FORMAT[IFOR + 1] == '%')
 			{
 				RET = RET + ft_putchar('%');
 				IFOR = IFOR + 1;
@@ -193,31 +160,20 @@ void    run_format(t_env *env)
 		}
 		else
 		{
-	//ft_putstr("RET>>");
-	//ft_putnbr(RET);
 			RET = RET + ft_putchar(FORMAT[IFOR]);
 		}
 		IFOR = IFOR + 1;
-		//ft_putstr("boucle");
-
 	}
 }
 
 int     ft_printf(const char *format, ...)
 {
-	//va_list		pa;
-	//void *a;
-//ft_putstr(format);
 	t_env		env;
-
-	//env = malloc(sizeof(t_env *));
 	env.format = format;
     ft_init_env(&env);
 	va_start(env.ap, format);
-	//ARG = va_arg(AP, void*);
-	//ft_putchar(ARG);
     run_format(&env);
 	va_end(env.ap);
-//	free(env);
 	return (env.ret);
+	return(ft_putstr(format));
 }

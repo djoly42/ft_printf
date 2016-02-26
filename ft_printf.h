@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:33:26 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/26 11:15:21 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/26 16:05:11 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ typedef struct			s_env
     void        *arg;
 	int			putneg;
     va_list     ap;
- //   int         token;
+	int			error;
 	int			nbr;
 	int			nbr_precision;
     char        fndflags[10];//0# 10 2- 3+ 4  5h 6l 7j 8z 9.

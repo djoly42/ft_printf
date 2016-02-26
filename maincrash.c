@@ -53,8 +53,8 @@ mr = ft_printf("MINE>5.d 5.0d 0 0\t[%5.d], [%5.0d]\n", 0, 0);
 	or = printf("ORIG>5.d 5.0d 0 0\t[%5.d], [%5.0d]\n", 0, 0);
 	ft_print_result(mr, or, __LINE__);
 
-	mr = ft_printf("MINE>5.d 5.0d 10 10\t[%5.d], [%5.0d]\n", 1, 1);
-		or = printf("ORIG>5.d 5.0d 10 10\t[%5.d], [%5.0d]\n", 1, 1);
+	mr = ft_printf("MINE>5.d 5.0d 1 1\t[%5.d], [%5.0d]\n", 1, 1);
+		or = printf("ORIG>5.d 5.0d 1 1\t[%5.d], [%5.0d]\n", 1, 1);
 		ft_print_result(mr, or, __LINE__);
 
 
@@ -70,32 +70,38 @@ mr = ft_printf("MINE>03.2d 0\t[%03.2d]\n", 0);
 	or = printf("ORIG>03.2d 0\t[%03.2d]\n", 0);
 	ft_print_result(mr, or, __LINE__);
 
-	mr = ft_printf("MINE>03.2d 10\t[%03.2d]\n", 1);
-		or = printf("ORIG>03.2d 10\t[%03.2d]\n", 1);
+	mr = ft_printf("MINE>03.2d 1\t[%03.2d]\n", 1);
+		or = printf("ORIG>03.2d 1\t[%03.2d]\n", 1);
 		ft_print_result(mr, or, __LINE__);
 
 
+
+mr = ft_printf("MINE>.10d -42\t[%.10d]\n", -42);
+	or = printf("ORIG>.10d -42\t[%.10d]\n", -42);
+	ft_print_result(mr, or, __LINE__);
+
 /*
-mr = ft_printf("MINE>\t[%o]\n", 11);
-	or = printf("ORIG>\t[%o]\n", 11);
-	ft_print_result(mr, or, __LINE__);
+	ft_printf("MINE>\t");
+	ft_printf("% Z%s", "test");
+	ft_printf("\n");
 
-mr = ft_printf("MINE>\t[%o]\n", -1);
-	or = printf("ORIG>\t[%o]\n", -1);
-	ft_print_result(mr, or, __LINE__);
+	printf("ORIG>\t");
+	printf("% Z%s", "test");
+	printf("\n");
 
-mr = ft_printf("MINE>\t[%o]\n", -2);
-	or = printf("ORIG>\t[%o]\n", -2);
-	ft_print_result(mr, or, __LINE__);
-
-    mr = ft_printf("MINE>\t[%o]\n", 2048);
-	or = printf("ORIG>\t[%o]\n", 2048);
-	ft_print_result(mr, or, __LINE__);
-
-    mr = ft_printf("MINE>\t[%o]\n", 2048);
-	or = printf("ORIG>\t[%o]\n", 2048);
+mr = ft_printf("MINE>\t[% Z%s]\n", "test");
+	or = printf("ORIG>\t[% Z%s]\n", "test");
 	ft_print_result(mr, or, __LINE__);
 */
+
+    mr = ft_printf("MINE>\t[%o]\n", 2048);
+	or = printf("ORIG>\t[%o]\n", 2048);
+	ft_print_result(mr, or, __LINE__);
+
+    mr = ft_printf("MINE>\t[%o]\n", 2048);
+	or = printf("ORIG>\t[%o]\n", 2048);
+	ft_print_result(mr, or, __LINE__);
+
 
     return (0);
 }

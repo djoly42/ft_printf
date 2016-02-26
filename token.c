@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:30:41 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/24 16:39:58 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/26 16:09:02 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void    ft_init_env(t_env *env)//, const char *format)
     IFOR = 0;
     ITOK = 0;
     NBR = -1;
+	env->error = 0;
 	env->putneg = 0;
 	NBRPREC = -1;
 	//ft_putchar('C');
