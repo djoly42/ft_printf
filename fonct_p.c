@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 16:35:37 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/26 18:21:10 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/26 18:51:31 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,7 +191,7 @@ static void x_prec(t_env *env)
 			//if (NBRPREC == -1)
 			//	RET = RET + ft_putspace(NBR);
 			 if (NBRPREC > ARGLEN)
-				RET = RET + ft_putspace(NBR - NBRPREC);
+				RET = RET + ft_putspace(NBR - NBRPREC - 2);
 			else if (ft_test0 (env))
 				RET = RET + ft_putspace(NBR);
 			else
