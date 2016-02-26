@@ -40,13 +40,13 @@ static void     ft_flag_prec(t_env *env)
 
 	int pos;
 	if ((int)ARG == 0 && NBR == -1 && NBRPREC == -1)//
-	return ;
+		return ;
 	if (NBRPREC < 1)
-	NBRPREC = 1;
+		NBRPREC = 1;
 	if (NBRPREC != -1 && NBRPREC < ft_nbrlen((int)ARG))
-	NBRPREC = ft_nbrlen((int)ARG);
+		NBRPREC = ft_nbrlen((int)ARG);
 	if (NBR < ft_nbrlen((int)ARG))
-	NBR = -1;//ft_nbrlen((int)ARG);
+		NBR = -1;
 	/*
 	ft_putstr(">>nbr>>");
 	ft_putnbr(NBR);

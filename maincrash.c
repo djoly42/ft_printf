@@ -53,6 +53,11 @@ mr = ft_printf("MINE>5.d 5.0d 0 0\t[%5.d], [%5.0d]\n", 0, 0);
 	or = printf("ORIG>5.d 5.0d 0 0\t[%5.d], [%5.0d]\n", 0, 0);
 	ft_print_result(mr, or, __LINE__);
 
+	mr = ft_printf("MINE>5.d 5.0d 0 0\t[%5.d], [%5.0d]\n", 1, 1);
+		or = printf("ORIG>5.d 5.0d 0 0\t[%5.d], [%5.0d]\n", 1, 1);
+		ft_print_result(mr, or, __LINE__);
+
+
 mr = ft_printf("MINE>u -1\t[%u]\n", -1);
 	or = printf("ORIG>u -1\t[%u]\n", -1);
 	ft_print_result(mr, or, __LINE__);

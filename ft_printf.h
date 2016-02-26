@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:33:26 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/24 17:40:17 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/26 11:15:21 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ int		ft_nbrlenl(long unsigned int nb);
 int		ft_nbrlenj(uintmax_t nb);
 int		ft_nbrlenll(long long unsigned int nb);
 int						ft_unbrlen(unsigned int nb);
+int						ft_which_putnbr(t_env *env);
 int						ft_putstr2(const char *str, int len);
 int						ft_putstr(const char *str);
 size_t                 	ft_strlen(const char *str);

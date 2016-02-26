@@ -6,24 +6,102 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 20:09:51 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/26 10:35:55 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/26 11:29:40 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_putnbru(unsigned int nbr)
+{
+	int	ret;
+
+	ret = 0;
+	if (nbr >= 10)
+	{
+		ret = ret + ft_putnbr2(nbr / 10);
+		ret = ret + ft_putnbr2(nbr % 10);
+	}
+	else
+	{
+		ret = ret + ft_putchar(nbr + '0');
+	}
+	return (ret);
+}
+
+int	ft_putnbrhu(uintmax_t nbr)
+{
+	int	ret;
+
+	ret = 0;
+	if (nbr >= 10)
+	{
+		ret = ret + ft_putnbr2(nbr / 10);
+		ret = ret + ft_putnbr2(nbr % 10);
+	}
+	else
+	{
+		ret = ret + ft_putchar(nbr + '0');
+	}
+	return (ret);
+}
+
+int	ft_putnbrllu(long long unsigned nbr)
+{
+	int	ret;
+
+	ret = 0;
+	if (nbr >= 10)
+	{
+		ret = ret + ft_putnbr2(nbr / 10);
+		ret = ret + ft_putnbr2(nbr % 10);
+	}
+	else
+	{
+		ret = ret + ft_putchar(nbr + '0');
+	}
+	return (ret);
+}
+
+int	ft_putnbrlu(long unsigned nbr)
+{
+	int	ret;
+
+	ret = 0;
+	if (nbr >= 10)
+	{
+		ret = ret + ft_putnbr2(nbr / 10);
+		ret = ret + ft_putnbr2(nbr % 10);
+	}
+	else
+	{
+		ret = ret + ft_putchar(nbr + '0');
+	}
+	return (ret);
+}
+
+int	ft_which_putnbr(t_env *env)
+{
+	if (ITOK == 8 || ITOK == 9)
+	{
+		if (FNDFLAGS[6] == 1)
+			return (ft_putnbrlu((long unsigned int)ARG));
+		else if (FNDFLAGS[6] == 2)
+			return (ft_putnbrllu((long long unsigned int)ARG));
+		else if (FNDFLAGS[7] == 1)
+			return (ft_putnbrhu((uintmax_t)ARG));
+		else if (FNDFLAGS[5] == 1 || ITOK == 9)
+			return (ft_putnbrhu((uintmax_t)ARG));
+		else
+			return (ft_putnbru((unsigned int)ARG));
+	}
+}
 
 int	ft_putnbr2(long long unsigned int nbr)
 {
 	int	ret;
 
 	ret = 0;
-	/*if (nbr == -2147483648)
-	{
-		ft_putstr("-2147483648");
-		ret = 11;
-	}
-	else
-	{*/
 		if (nbr < 0)
 		{
 			ft_putchar('-');
