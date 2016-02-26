@@ -44,7 +44,7 @@ int	main(void)
 	or = 0;
 	mr = 0;
 
-
+/*
 mr = ft_printf("MINE>d 2147483648\t[%d]\n", 2147483648);
 	or = printf("ORIG>d 2147483648\t[%d]\n", 2147483648);
 	ft_print_result(mr, or, __LINE__);
@@ -69,7 +69,7 @@ mr = ft_printf("MINE>u 4294967296\t[%u]\n", 4294967296);
 mr = ft_printf("MINE>.10d -42\t[%.10d]\n", -42);
 	or = printf("ORIG>.10d -42\t[%.10d]\n", -42);
 	ft_print_result(mr, or, __LINE__);
-
+*/
 /*
 	ft_printf("MINE>\t");
 	ft_printf("% Z%s", "test");
@@ -83,26 +83,47 @@ mr = ft_printf("MINE>\t[% Z%s]\n", "test");
 	or = printf("ORIG>\t[% Z%s]\n", "test");
 	ft_print_result(mr, or, __LINE__);
 */
-
-mr = ft_printf("MINE>03.2d 0\t[%03.2d]\n", 0);
-or = printf("ORIG>03.2d 0\t[%03.2d]\n", 0);
+/*
+mr = ft_printf("MINE>03.2d 0\t[%-03.2d]\n", 0);
+or = printf("ORIG>03.2d 0\t[%-03.2d]\n", 0);
 ft_print_result(mr, or, __LINE__);
 
-mr = ft_printf("MINE>03.2d 1\t[%03.2d]\n", 1);
-or = printf("ORIG>03.2d 1\t[%03.2d]\n", 1);
+mr = ft_printf("MINE>03.2d 1\t[%-03.2d]\n", 1);
+or = printf("ORIG>03.2d 1\t[%-03.2d]\n", 1);
 ft_print_result(mr, or, __LINE__);
 
-mr = ft_printf("MINE>\t[%03.2d]\n", -1);
-or = printf("ORIG>\t[%03.2d]\n", -1);
+mr = ft_printf("MINE>\t[%-03.2d]\n", -1);
+or = printf("ORIG>\t[%-03.2d]\n", -1);
 ft_print_result(mr, or, __LINE__);
 
-mr = ft_printf("MINE>\t[%06.2d]\n", -1);
-or = printf("ORIG>\t[%06.2d]\n", -1);
+mr = ft_printf("MINE>\t[%-06.2d]\n", -1);
+or = printf("ORIG>\t[%-06.2d]\n", -1);
 ft_print_result(mr, or, __LINE__);
+
+//45 63
+	mr = ft_printf("MINE>\t[%0-+8.4d]\n", 10);
+	or = printf(   "ORIG>\t[%0-+8.4d]\n", 10);
+	ft_print_result(mr, or, __LINE__);
 
 ft_print_result(mr, or, __LINE__);
 mr = ft_printf("MINE>###-#0000 33...12..#0+0d 256\t[%###-#0000 33...12..#0+0d]\n", 256);
-or = printf("ORIG>###-#0000 33...12..#0+0d 256\t[%###-#0000 33...12..#0+0d]\n", 256);
+or = printf("ORIG>###-#0000 33...12..#0+0d 256\t[%###-#0000 33...12.#0+0d]\n", 256);
+ft_print_result(mr, or, __LINE__);
+*/
+mr = ft_printf("MINE>\t[%p]\n", &mr);
+or = printf(   "ORIG>\t[%p]\n", &mr);
+ft_print_result(mr, or, __LINE__);
+
+mr = ft_printf("MINE>\t[%p]\n", &or);
+or = printf(   "ORIG>\t[%p]\n", &or);
+ft_print_result(mr, or, __LINE__);
+int m;
+mr = ft_printf("MINE>\t[%10p]\n", &m);
+or = printf(   "ORIG>\t[%10p]\n", &m);
+ft_print_result(mr, or, __LINE__);
+int r;
+mr = ft_printf("MINE>\t[%+10p]\n", test);
+or = printf(   "ORIG>\t[%+10p]\n", test);
 ft_print_result(mr, or, __LINE__);
 
     return (0);

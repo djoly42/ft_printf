@@ -70,15 +70,15 @@ static void     ft_flag_prec(t_env *env)
 			env->putneg = 1;
 
 		}
-		if (FNDFLAGS[2] == -1)
-		{
-		if (NBRPREC == ARGLEN && env->putneg == 1)
-		RET = RET + ft_putzero2(1);
-		else if (NBRPREC > ARGLEN && env->putneg == 1)
-		RET = RET + ft_putzero2(NBRPREC - ARGLEN + 1);
-		else
-		RET = RET + ft_putzero2(NBRPREC - ARGLEN);
-		}
+		//if (FNDFLAGS[2] == -1 && FNDFLAGS[1] == -1)
+		//{
+			if (NBRPREC == ARGLEN && env->putneg == 1)
+			RET = RET + ft_putzero2(1);
+			else if (NBRPREC > ARGLEN && env->putneg == 1)
+			RET = RET + ft_putzero2(NBRPREC - ARGLEN + 1);
+			else
+			RET = RET + ft_putzero2(NBRPREC - ARGLEN);
+		//}
 		//		ft_putstr(">>putzero<<");
 	}
 	if (NBRPREC != -1)
