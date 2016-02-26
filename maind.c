@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 17:04:56 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/26 09:26:14 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/26 12:01:41 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -417,7 +417,7 @@ int	main(void)
 	mr = ft_printf("MINE>\t[%4.15d]\n", 42);
 	or = printf("ORIG>\t[%4.15d]\n", 42);
 	ft_print_result(mr, or, __LINE__);
-
+//52
 	mr = ft_printf("MINE>\t[%+10.5d]\n", 4242);
 	or = printf("ORIG>\t[%+10.5d]\n", 4242);
 	ft_print_result(mr, or, __LINE__);
