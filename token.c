@@ -6,13 +6,46 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:30:41 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/26 16:09:02 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/26 17:07:22 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 //sSpdDioOuUxXcC 14
 
+void statut(t_env *env)
+{
+	int i;
+
+	i = 0;
+	ft_putstr("<<\nifor>>");
+	ft_putnbr(IFOR);
+	ft_putstr("<<\nitok>>");
+	ft_putnbr(ITOK);
+	ft_putstr("<<\nputneg>>");
+	ft_putnbr(env->putneg);
+	ft_putstr("<<\nerror>>");
+	ft_putnbr(env->error);
+	ft_putstr("<<\nNBR>>");
+	ft_putnbr(NBR);
+	ft_putstr("<<\nNBRPREC>>");
+	ft_putnbr(NBRPREC);
+	ft_putstr("<<\nRET>>");
+	ft_putnbr(RET);
+	ft_putstr("<<\nARGLEN>>");
+	ft_putnbr(ARGLEN);
+	ft_putstr("<<\nFNDFLAGS>>");
+	while (i < 10)
+	{
+		ft_putnbr(i);
+		ft_putchar('=');
+		ft_putnbr(FNDFLAGS[i]);
+		ft_putstr(" ");
+		i++;
+	}
+
+
+}
 void    ft_re_init_env(t_env *env)//, const char *format)
 {
 	int i;

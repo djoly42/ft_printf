@@ -38,6 +38,8 @@ static void ft_putzero(t_env *env)
 static void     ft_flag_prec(t_env *env)
 {
 	int pos;
+
+	//statut(env);
 	if ((int)ARG == 0 && NBR == -1 && NBRPREC == -1)//
 	return ;
 	if (NBRPREC == -1 && NBRPREC < ARGLEN && (int)ARG != 0)
@@ -54,8 +56,6 @@ static void     ft_flag_prec(t_env *env)
 		RET = RET + ft_putspace(NBR);
 		else
 		RET = RET + ft_putspace(NBR - ARGLEN);
-		//ft_putstr(">>put <<");
-
 	}
 	if (FNDFLAGS[3] == 1) // +
 	RET = RET + ft_putchar('+');
@@ -70,14 +70,15 @@ static void     ft_flag_prec(t_env *env)
 			env->putneg = 1;
 
 		}
-
-
+		if (FNDFLAGS[2] == -1)
+		{
 		if (NBRPREC == ARGLEN && env->putneg == 1)
 		RET = RET + ft_putzero2(1);
 		else if (NBRPREC > ARGLEN && env->putneg == 1)
 		RET = RET + ft_putzero2(NBRPREC - ARGLEN + 1);
 		else
 		RET = RET + ft_putzero2(NBRPREC - ARGLEN);
+		}
 		//		ft_putstr(">>putzero<<");
 	}
 	if (NBRPREC != -1)

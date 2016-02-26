@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:33:26 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/26 16:05:11 by djoly            ###   ########.fr       */
+/*   Updated: 2016/02/26 16:44:09 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,7 @@ int						ft_atoi(const char *str);
 int                     ft_putspace(int nbr); //dans ft_check_env.c
 int	ft_putzero2(int nbr);
 void					print_percent(t_env *env);
+
+void					statut(t_env *env); // statut
 
 #endif
