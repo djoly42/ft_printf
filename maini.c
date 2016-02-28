@@ -55,3 +55,20 @@ int	main(void)
 	test = malloc(sizeof(char*));
 	or = 0;
 	mr = 0;
+mr = ft_printf("MINE>\t[%lli]\n", 9223372036854775807);
+	or = printf(   "ORIG>\t[%lli]\n", 9223372036854775807);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%-5.4i]\n", 10);
+	or = printf(   "ORIG>\t[%-5.4i]\n", 10);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%8.4i]\n", 10);
+	or = printf(   "ORIG>\t[%8.4i]\n", 10);
+	ft_print_result(mr, or, __LINE__);
+
+
+return (0);
+}
+
+
