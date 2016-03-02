@@ -3,7 +3,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
-
+# include <limits.h>
 #include <stdio.h> /* !!! */
 
 typedef unsigned long long		ull;
@@ -304,8 +304,13 @@ mr = ft_printf("MINE>\t[%o]\n", -2);
 	or = printf("ORIG>\t[%#3.o], [%#3.0o]\n", 1, 1);
 	ft_print_result(mr, or, __LINE__);
 //37
-	mr = ft_printf("MINE>\t[%#3.o], [%#3.0o]\n", 0, 0);
-	or = printf("ORIG>\t[%#3.o], [%#3.0o]\n", 0, 0);
+	mr = ft_printf("MINE>\t[%jo], [%jo]\n", 0, ULLONG_MAX);
+	or = printf("ORIG>\t[%jo], [%jo]\n", 0, ULLONG_MAX);
 	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%O], [%O]\n", 0, LONG_MAX);
+	or = printf("ORIG>\t[%O], [%O]\n", 0, LONG_MAX);
+	ft_print_result(mr, or, __LINE__);
+
     return (0);
 }

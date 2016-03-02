@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 17:36:04 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/26 17:36:26 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/02 17:37:26 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,7 +180,7 @@ static void x_prec(t_env *env)
 
 	if (!ft_test0(env) && FNDFLAGS[0] == 1 && NBR != -1)//#
 		NBR = NBR - 2;
-	if (FNDFLAGS[2] != 1 && NBR != -1)// &&  NBRPREC != -1 ) //.
+	if (FNDFLAGS[2] != 1 && NBR != -1)
 		{
 			//if (NBRPREC == -1)
 			//	RET = RET + ft_putspace(NBR);

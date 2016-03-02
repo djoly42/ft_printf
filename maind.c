@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 17:04:56 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/26 18:28:05 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/02 15:58:04 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
-
+# include <limits.h>
 #include <stdio.h> /* !!! */
 
 typedef unsigned long long		ull;
@@ -496,13 +496,18 @@ int	main(void)
 		or = printf("ORIG>-5+d 42\t[%-5+d]\n", 42);
 		ft_print_result(mr, or, __LINE__);
 
-		mr = ft_printf("MINE>-0+5d 42\t[%-0+5d]\n", 42);
-		or = printf("ORIG>-0+5d 42\t[%-0+5d]\n", 42);
-
+		mr = ft_printf("MINE>-0+5d 42\t[%-0+5D]\n", LONG_MAX);
+		or = printf("ORIG>-0+5d 42\t[%-0+5D]\n", LONG_MAX);
 		ft_print_result(mr, or, __LINE__);
+
+		mr = ft_printf("MINE>-0+5d 42\t[%D]\n", LONG_MAX);
+		or = printf("ORIG>-0+5d 42\t[%D]\n", LONG_MAX);
+		ft_print_result(mr, or, __LINE__);
+
+		/*
 		mr = ft_printf("MINE>###-#0000 33...12..#0+0d 256\t[%###-#0000 33...12#0+0d]\n", 256);
 		or = printf("ORIG>###-#0000 33...12..#0+0d 256\t[%###-#0000 33...12#0+0d]\n", 256);
 		ft_print_result(mr, or, __LINE__);
-
+*/
     return(0);
 }

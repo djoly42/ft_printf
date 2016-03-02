@@ -17,8 +17,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
-
-#inclure <strio.h> /* !!! */
+# include <limits.h>
+#include <stdio.h> /* !!! */
 
 typedef unsigned long long		ull;
 typedef long long				ll;
@@ -499,7 +499,24 @@ int	main(void)
 		mr = ft_printf("MINE>-0+5D 42\t[%-0+5D]\n", 42);
 		or = printf("ORIG>-0+5D 42\t[%-0+5D]\n", 42);
 
+		mr = ft_printf("MINE>-0+5d 42\t[%-0+5D]\n", LONG_MAX);
+		or = printf("ORIG>-0+5d 42\t[%-0+5D]\n", LONG_MAX);
 		ft_print_result(mr, or, __LINE__);
+
+		mr = ft_printf("MINE>-0+5d 42\t[%D]\n", LONG_MAX);
+		or = printf("ORIG>-0+5d 42\t[%D]\n", LONG_MAX);
+		ft_print_result(mr, or, __LINE__);
+
+
+		mr = ft_printf("MINE>-0+5D 42\t[%-0+5D]\n", LONG_MIN);
+		or = printf("ORIG>-0+5D 42\t[%-0+5D]\n", LONG_MIN);
+		ft_print_result(mr, or, __LINE__);
+
+		mr = ft_printf("MINE>D \t[%D]\n", LONG_MIN);
+		or = printf("ORIG>D \t[%D]\n", LONG_MIN);
+		ft_print_result(mr, or, __LINE__);
+
+
 		mr = ft_printf("MINE>###-#0000 33...12..#0+0D 256\t[%###-#0000 33...12#0+0D]\n", 256);
 		or = printf("ORIG>###-#0000 33...12..#0+0D 256\t[%###-#0000 33...12#0+0D]\n", 256);
 		ft_print_result(mr, or, __LINE__);

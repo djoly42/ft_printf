@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 20:09:51 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/26 11:29:40 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/02 17:17:41 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_putnbru(unsigned int nbr)
 	ret = 0;
 	if (nbr >= 10)
 	{
-		ret = ret + ft_putnbr2(nbr / 10);
-		ret = ret + ft_putnbr2(nbr % 10);
+		ret = ret + ft_putnbru(nbr / 10);
+		ret = ret + ft_putnbru(nbr % 10);
 	}
 	else
 	{
@@ -36,8 +36,25 @@ int	ft_putnbrhu(uintmax_t nbr)
 	ret = 0;
 	if (nbr >= 10)
 	{
-		ret = ret + ft_putnbr2(nbr / 10);
-		ret = ret + ft_putnbr2(nbr % 10);
+		ret = ret + ft_putnbrhu(nbr / 10);
+		ret = ret + ft_putnbrhu(nbr % 10);
+	}
+	else
+	{
+		ret = ret + ft_putchar(nbr + '0');
+	}
+	return (ret);
+}
+
+int	ft_putnbrhhu(unsigned char nbr)
+{
+	int	ret;
+
+	ret = 0;
+	if (nbr >= 10)
+	{
+		ret = ret + ft_putnbrhu(nbr / 10);
+		ret = ret + ft_putnbrhu(nbr % 10);
 	}
 	else
 	{
@@ -53,8 +70,8 @@ int	ft_putnbrllu(long long unsigned nbr)
 	ret = 0;
 	if (nbr >= 10)
 	{
-		ret = ret + ft_putnbr2(nbr / 10);
-		ret = ret + ft_putnbr2(nbr % 10);
+		ret = ret + ft_putnbrllu(nbr / 10);
+		ret = ret + ft_putnbrllu(nbr % 10);
 	}
 	else
 	{
@@ -92,6 +109,8 @@ int	ft_which_putnbr(t_env *env)
 			return (ft_putnbrhu((uintmax_t)ARG));
 		else if (FNDFLAGS[5] == 1 || ITOK == 9)
 			return (ft_putnbrhu((uintmax_t)ARG));
+		else if (FNDFLAGS[5] == 2)
+			return (ft_putnbrhhu((unsigned char)ARG));
 		else
 			return (ft_putnbru((unsigned int)ARG));
 	}

@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 19:59:32 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/24 17:32:30 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/02 18:35:01 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,16 @@ int		ft_nbrlenh(unsigned short int nb)
 }
 
 int		ft_nbrlenl(long unsigned int nb)
+{
+	int i;
+
+	i = 1;
+	while (nb /= 10)
+		i++;
+	return (i);
+}
+
+int		ft_nbrlenD(long int nb)
 {
 	int i;
 
