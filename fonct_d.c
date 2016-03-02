@@ -6,26 +6,16 @@ static void ft_putzero(t_env *env)
 {
 	int i;
 
-	//ft_putstr(">>dans0>>");
 	if ((int)ARG < 0 &&  env->putneg!= 1)
 	{
 		RET = RET + ft_putchar('-');
 		ARG = (-1) * (int)env->arg;
-		//if (NBR != -1)
 		NBR = NBR - 1;
 		env->putneg = 1;
-
 	}
-	if (NBR != -1)// && FNDFLAGS[2] != 1)
+	if (NBR != -1)
 	NBR = NBR - ft_nbrlen((int)ARG);
-	//else
-	//NBR = NBR - ft_nbrlen((int)ARG);
 	i = -1;
-	/*
-	ft_putstr(">>ret01>>");
-	ft_putnbr(RET);
-	ft_putstr("<<");
-	*/
 	while (++i < (NBR))
 	RET = RET + ft_putchar('0');
 	/*
@@ -44,11 +34,11 @@ static void     ft_flag_prec(t_env *env)
 	return ;
 	if (NBRPREC == -1 && NBRPREC < ARGLEN && (int)ARG != 0)
 	NBRPREC = ARGLEN;
-	if (NBR > NBRPREC && FNDFLAGS[2] != 1) // nbr sans -
+	if (NBR >= ARGLEN && NBR > NBRPREC && FNDFLAGS[2] != 1) // nbr sans -
 	{
 		if (FNDFLAGS[3] == 1) // +
 		NBR = NBR - 1;
-		if ((int)ARG < 0)
+		if ((int)ARG < 0 && ARGLEN < NBRPREC)
 		NBR = NBR - 1;
 		if (NBRPREC > ARGLEN) //!= -1)
 		RET = RET + ft_putspace(NBR - NBRPREC);
