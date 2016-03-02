@@ -6,23 +6,27 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/28 10:54:56 by daniel            #+#    #+#             */
-/*   Updated: 2016/02/18 14:06:46 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/02 13:24:10 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
+#include <locale.h>
+#include <stdio.h>
+#include <wchar.h>
 #define MINE ft_printf
 #define ORIG printf
+
 int main ()
 {
-
+setlocale(LC_ALL, "en_US.UTF-8");
   int mr;
   int or;
 
 	printf("======== %%c ========\n");
-	mr = ft_printf("MINE>\t[%c]\n", 'H');
-	or = printf("ORIG>\t[%c]\n", 'H');
+	mr = ft_printf("MINE>\t[%C]\n", 945);
+	or = printf("ORIG>\t[%C]\n", 945);
 	printf("mr:%d or:%d\n",mr, or);
 
 	mr = ft_printf("MINE>2c\t[%2c]\n", 'r');

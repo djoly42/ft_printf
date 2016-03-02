@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:30:41 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/26 18:28:20 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/02 12:04:48 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void ft_init_list2(t_env *env)
 	env->fonction[10] = fonct_x;
 	env->fonction[11] = fonct_x;
 	env->fonction[12] = fonct_c;
-	env->fonction[13] = fonct_c;
+	env->fonction[13] = fonct_C;
 //	env->fonction[14] = print_percent;
 
 

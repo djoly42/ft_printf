@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:33:26 by djoly             #+#    #+#             */
-/*   Updated: 2016/02/26 18:35:33 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/02 14:00:10 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int                     fonct_c(t_env *env);
 int                     fonct_C(t_env *env);
 char					*ft_strchr(const char *s, int c);
 int						ft_putchar(char c);
-int						ft_putcharwt(wchar_t c);
+int						ft_put_w_char(wchar_t c);
 int						ft_putnbr(long long int nbr);
 int						ft_putnbr2(long long unsigned int nbr);
 int						ft_nbrlen(int nb);
@@ -115,5 +115,6 @@ int	ft_putzero2(int nbr);
 void					print_percent(t_env *env);
 
 void					statut(t_env *env); // statut
+int						fonct_error(t_env *env);
 
 #endif

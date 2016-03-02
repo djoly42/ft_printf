@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_percent.c                                    :+:      :+:    :+:   */
+/*   fonct_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/24 09:27:34 by djoly             #+#    #+#             */
-/*   Updated: 2016/03/02 13:52:27 by djoly            ###   ########.fr       */
+/*   Created: 2016/03/02 13:54:24 by djoly             #+#    #+#             */
+/*   Updated: 2016/03/02 14:00:42 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void print_percent(t_env *env)
+int		fonct_error(t_env *env)
 {
 	if (FNDFLAGS[2] == -1 && NBR != -1)
 	{
@@ -21,7 +21,7 @@ void print_percent(t_env *env)
 		else
 		RET = RET + ft_putspace(NBR - 1);
 }
-	RET = RET + ft_putchar('%');
+	RET = RET + ft_putchar(FORMAT[IFOR]);
 	if (FNDFLAGS[2] == 1 && NBR != -1)
 		RET = RET + ft_putspace(NBR - 1);
 }
