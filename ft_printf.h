@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:33:26 by djoly             #+#    #+#             */
-/*   Updated: 2016/03/02 18:55:40 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/03 14:43:06 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,13 +96,13 @@ int                     fonct_c(t_env *env);
 int                     fonct_C(t_env *env);
 char					*ft_strchr(const char *s, int c);
 int						ft_putchar(char c);
-int						ft_put_w_char(wchar_t c);
+
 int						ft_putnbr(long long int nbr);
 int						ft_putnbr2(long long unsigned int nbr);
 int						ft_nbrlen(int nb);
 int		ft_nbrlenh(unsigned short int nb);
 int		ft_nbrlenl(long unsigned int nb);
-int		ft_nbrlenD(long int nb);
+//int		ft_nbrlenD(long int nb);
 int		ft_nbrlenj(uintmax_t nb);
 int		ft_nbrlenll(long long unsigned int nb);
 int						ft_unbrlen(unsigned int nb);
@@ -112,10 +112,31 @@ int						ft_putstr(const char *str);
 size_t                 	ft_strlen(const char *str);
 int						ft_atoi(const char *str);
 int                     ft_putspace(int nbr); //dans ft_check_env.c
-int	ft_putzero2(int nbr);
+int						ft_putzero2(int nbr);
 void					print_percent(t_env *env);
 
 void					statut(t_env *env); // statut
 int						fonct_error(t_env *env);
 int						ft_which_putoctal(t_env *env);
+
+int						ft_arglenD(t_env *env);
+void					ft_which_putnbrD(t_env *env);
+
+int						ft_put_w_char(wchar_t c);
+
+int						ft_wstrlen(wchar_t *str);
+int						ft_putwnstr(wchar_t *str, int n);
+int						ft_putwstr(wchar_t *str);
+
+
+
+
+
+
+
+
+
+
+
+
 #endif

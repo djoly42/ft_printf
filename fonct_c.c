@@ -1,35 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fonct_c.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/03/03 14:14:24 by djoly             #+#    #+#             */
+/*   Updated: 2016/03/03 14:15:40 by djoly            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
-/*
-static void	ft_putspace(t_env *env)
-{
-	int i;
 
-ft_putstr(">>itok>>");
-ft_putnbr(ITOK);
-ft_putstr("<<");
-ft_putstr(">>nbr>>");
-ft_putnbr(NBR);
-ft_putstr("<<");
-	i = -1;
-	if (ITOK == 12)
-		NBR = NBR - 1;
-
-ft_putstr(">>nbr>>");
-ft_putnbr(NBR);
-ft_putstr("<<");
-
-	while (++i < (NBR))
-		 RET = RET + ft_putchar(' ');
-}
-*/
 static void	ft_putzero(t_env *env)
 {
 	int i;
 
 	i = -1;
 	while (++i < (NBR - 1))
-	 RET = RET + ft_putchar('0');
+	RET = RET + ft_putchar('0');
 
 }
 

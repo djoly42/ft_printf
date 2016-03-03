@@ -73,53 +73,7 @@ static void     ft_flag_prec(t_env *env)
 	}
 	if (NBRPREC != -1)
 	{
-		if (FNDFLAGS[5] == -1 && FNDFLAGS[6] == -1 && FNDFLAGS[7] == -1 && FNDFLAGS[8] == -1 && (int)ARG < 0)//          (long long int)ARG < 9223372036854775808)//  (long long int)ARG < 0 )//&& FNDFLAGS[2] != 1) // - nest pas encore ecrie, voir putzero
-		{
-			//		ft_putstr(">>DANS IF1>>");
-			pos = (-1) * (long int)ARG;
-			if (env->putneg != 1)
-			{
-				RET = RET + ft_putchar('-');
-				env->putneg = 1;
-			}
-			RET = RET + ft_putnbr(pos);
-		}
-		else if(FNDFLAGS[6] == 1)
-		{
-			//		ft_putstr(">>DANS IF2>>");
-			RET = RET + ft_putnbr((long int)ARG);
-		}
-		else if(FNDFLAGS[6] == 2)
-		{
-			//    printf(">>%lld<<",ARG);
-			//	ft_putstr(">>DANS IF3>>");
-			RET = RET + ft_putnbr((long long int)ARG);
-		}
-		else if(FNDFLAGS[5] == 1)
-		{
-			//	ft_putstr(">>DANS IF4>>");
-			RET = RET + ft_putnbr((short int)ARG);
-		}
-		else if(FNDFLAGS[5] == 2)
-		{
-			//	ft_putstr(">>DANS IF5>>");
-			RET = RET + ft_putnbr((signed char)ARG);
-		}
-		else if(FNDFLAGS[7] == 1)
-		{
-			//	ft_putstr(">>DANS J>>");
-			RET = RET + ft_putnbr((intmax_t)ARG);
-		}
-		else if(FNDFLAGS[8] == 1)
-		{
-			//	ft_putstr(">>DANS Z>>");
-			RET = RET + ft_putnbr((size_t)ARG);
-		}
-		else
-		{
-			//	ft_putstr(">>DANS ELSE>>");
-			RET = RET + ft_putnbr((int)ARG);
-		}
+		ft_which_putnbrD(env);
 	}
 	if (NBR != -1 && FNDFLAGS[2] == 1)
 	{
@@ -134,7 +88,7 @@ int     fonct_D(t_env *env)
 {
 	int	pos;
 
-	ARGLEN = ft_nbrlenD((long int)ARG);
+	ARGLEN = ft_arglenD(env);
 /*
 	ft_putstr(">>RET2>>");
 	ft_putnbr(ARGLEN);
@@ -178,47 +132,7 @@ int     fonct_D(t_env *env)
 			ARGLEN = ARGLEN + 1;
 			RET = RET + ft_putchar('+');
 		}
-		if (FNDFLAGS[5] == -1 && FNDFLAGS[6] == -1 && FNDFLAGS[7] == -1 && FNDFLAGS[8] == -1 && (int)ARG < 0)//          (long long int)ARG < 9223372036854775808)//  (long long int)ARG < 0 )//&& FNDFLAGS[2] != 1) // - nest pas encore ecrie, voir putzero
-		{
-			//ft_putstr(">>DANS IF1>>");
-			RET = RET + ft_putnbr((long int)ARG);//pos);
-		}
-		else if(FNDFLAGS[6] == 1)
-		{
-			//ft_putstr(">>DANS IF2>>");
-			RET = RET + ft_putnbr((long int)ARG);
-		}
-		else if(FNDFLAGS[6] == 2)
-		{
-			//    printf(">>%lld<<",ARG);
-			//ft_putstr(">>DANS IF3>>");
-			RET = RET + ft_putnbr((long long int)ARG);
-		}
-		else if(FNDFLAGS[8] == 1)
-		{
-			//	ft_putstr(">>DANS Z>>");
-			RET = RET + ft_putnbr((size_t)ARG);
-		}
-		else if(FNDFLAGS[5] == 2)
-		{
-			//ft_putstr(">>DANS IF5>>");
-			RET = RET + ft_putnbr((signed char)ARG);
-		}
-		else if(FNDFLAGS[7] == 1)
-		{
-			//ft_putstr(">>DANS J>>");
-			RET = RET + ft_putnbr((intmax_t)ARG);
-		}
-		else if(FNDFLAGS[5] == 1)
-		{
-			//ft_putstr(">>DANS H>>");
-			RET = RET + ft_putnbr((short int)ARG);
-		}
-		else
-		{
-			//	ft_putstr(">>DANS ELSE>>");
-			RET = RET + ft_putnbr((long int)ARG);
-		}
+		ft_which_putnbrD(env);
 		/*
 		ft_putstr(">>RET2>>");
 		ft_putnbr(NBR);
