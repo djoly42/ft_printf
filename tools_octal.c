@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/02 18:45:09 by djoly             #+#    #+#             */
-/*   Updated: 2016/03/03 11:11:10 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/03 11:47:59 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,57 @@ static int	ft_putoctal_ho(unsigned short int nbr)
 	return (ret);
 }
 
+static int	ft_putoctal_llo(unsigned long long int nbr)
+{
+	int	ret;
+
+	ret = 0;
+	if (nbr > 8)
+	{
+		ret = ret + ft_putoctal_llo(nbr / 8);
+		ret = ret + ft_putoctal_llo(nbr % 8);
+	}
+	else
+	{
+		ret = ret + ft_putchar(nbr + '0');
+	}
+	return (ret);
+}
+
+static int	ft_putoctal_lo(unsigned long int nbr)
+{
+	int	ret;
+
+	ret = 0;
+	if (nbr > 8)
+	{
+		ret = ret + ft_putoctal_lo(nbr / 8);
+		ret = ret + ft_putoctal_lo(nbr % 8);
+	}
+	else
+	{
+		ret = ret + ft_putchar(nbr + '0');
+	}
+	return (ret);
+}
+
+static int	ft_putoctal_zo(size_t nbr)
+{
+	int	ret;
+
+	ret = 0;
+	if (nbr > 8)
+	{
+		ret = ret + ft_putoctal_zo(nbr / 8);
+		ret = ret + ft_putoctal_zo(nbr % 8);
+	}
+	else
+	{
+		ret = ret + ft_putchar(nbr + '0');
+	}
+	return (ret);
+}
+
 static int	ft_putoctal(unsigned int nbr)
 {
 	int	ret;
@@ -82,20 +133,19 @@ static int	ft_putoctal(unsigned int nbr)
 
 int	ft_which_putoctal(t_env *env)
 {
-	//if (ITOK == 8 || ITOK == 9)
-	//{
-//		if (FNDFLAGS[6] == 1)
-//			return (ft_putnbrlu((long unsigned int)ARG));
-//		else if (FNDFLAGS[6] == 2)
-//			return (ft_putnbrllu((long long unsigned int)ARG));
+
 		 if (FNDFLAGS[7] == 1)
 			return (ft_putoctal_uintmax_t((uintmax_t)ARG));
-//		else if (FNDFLAGS[5] == 1 || ITOK == 9)
-//			return (ft_putnbrhu((uintmax_t)ARG));
 		else if (FNDFLAGS[5] == 1)
 			return (ft_putoctal_ho((unsigned short int)ARG));
 		else if (FNDFLAGS[5] == 2)
 			return (ft_putoctal_hho((unsigned char)ARG));
+		else if (FNDFLAGS[6] == 1)
+			return (ft_putoctal_lo((unsigned long int)ARG));
+		else if (FNDFLAGS[6] == 2)
+			return (ft_putoctal_llo((unsigned long long int)ARG));
+		else if (FNDFLAGS[8] == 1)
+			return (ft_putoctal_zo((size_t)ARG));
 		else
 			return (ft_putoctal((unsigned int)ARG));
 	//}

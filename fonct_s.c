@@ -8,14 +8,14 @@ static void x_prec(t_env *env)
 	{
 	if (FNDFLAGS[2] == -1 && NBR != -1)// && NBRPREC != -1) //pas de - et nbr
 	{
-		if (NBRPREC > ARGLEN)
+		if (NBRPREC > ARGLEN && NBR > ARGLEN)
 		{
 		if (FNDFLAGS[1] == 1)
 			RET = RET + ft_putzero2(NBR - ARGLEN);
 		else
 			RET = RET + ft_putspace(NBR - ARGLEN);
 		}
-		else if (NBRPREC != -1)
+		else if (NBRPREC != -1 && NBR > NBRPREC)
 		{
 		if (FNDFLAGS[1] == 1)
 			RET = RET + ft_putzero2(NBR - NBRPREC);
@@ -40,6 +40,9 @@ static void x_prec(t_env *env)
 		//ft_putstr(">>");
 		if (FNDFLAGS[1] == 1)
 			RET = RET + ft_putzero2(NBR);
+		else
+			RET = RET + ft_putspace(NBR);
+
 	}
 }
 

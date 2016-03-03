@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 17:36:04 by djoly             #+#    #+#             */
-/*   Updated: 2016/03/03 10:54:17 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/03 12:00:20 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,21 @@ static int hexa_lenhh(uintmax_t nb)
     return (i);
 }
 
+static int hexa_lenz(size_t nb)
+{
+    int i;
+
+	if (nb == 0)
+		return (1);
+    i = 0;
+    while (nb != 0)
+    {
+        i++;
+        nb = nb / 16;
+    }
+    return (i);
+}
+
 static int hexa_len(t_env *env)
 {
 	if (FNDFLAGS[6] == 1)
@@ -114,7 +129,9 @@ static int hexa_len(t_env *env)
 	else if (FNDFLAGS[5] == 2)
 		return (hexa_lenhh((unsigned char)ARG));
 	else if (FNDFLAGS[7] == 1)
-			return (hexa_lenj((uintmax_t)ARG));
+		return (hexa_lenj((uintmax_t)ARG));
+	else if (FNDFLAGS[8] == 1)
+		return (hexa_lenz((size_t)ARG));
 	else
 		return (hexa_leni((unsigned int)ARG));
 }
@@ -192,6 +209,18 @@ static void print_hexahh(unsigned char nb, t_env *env)
 	}
 }
 
+static void print_hexazx(size_t nb, t_env *env)
+{
+	if (nb != 0)
+	{
+		print_hexazx(nb / 16, env);
+		if (ITOK == 10)
+			ft_putchar(HEXA[nb % 16]);
+		else
+			ft_putchar(HEXA2[nb % 16]);
+	}
+}
+
 static int print_hexa(t_env *env)
 {
 	if (FNDFLAGS[6] == 1)
@@ -204,7 +233,8 @@ static int print_hexa(t_env *env)
 		print_hexah((unsigned short int)ARG, env);
 	else if (FNDFLAGS[5] == 2)
 		print_hexahh((unsigned char)ARG, env);
-
+	else if (FNDFLAGS[8] == 1)
+		print_hexazx((size_t)ARG, env);
 	else
 		print_hexai((unsigned int)ARG, env);
 }

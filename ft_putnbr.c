@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 20:09:51 by djoly             #+#    #+#             */
-/*   Updated: 2016/03/02 17:17:41 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/03 11:45:30 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,25 @@ int	ft_putnbrlu(long unsigned nbr)
 	ret = 0;
 	if (nbr >= 10)
 	{
-		ret = ret + ft_putnbr2(nbr / 10);
-		ret = ret + ft_putnbr2(nbr % 10);
+		ret = ret + ft_putnbrlu(nbr / 10);
+		ret = ret + ft_putnbrlu(nbr % 10);
+	}
+	else
+	{
+		ret = ret + ft_putchar(nbr + '0');
+	}
+	return (ret);
+}
+
+int	ft_putnbrzu(size_t nbr)
+{
+	int	ret;
+
+	ret = 0;
+	if (nbr >= 10)
+	{
+		ret = ret + ft_putnbrzu(nbr / 10);
+		ret = ret + ft_putnbrzu(nbr % 10);
 	}
 	else
 	{
@@ -111,6 +128,8 @@ int	ft_which_putnbr(t_env *env)
 			return (ft_putnbrhu((uintmax_t)ARG));
 		else if (FNDFLAGS[5] == 2)
 			return (ft_putnbrhhu((unsigned char)ARG));
+		else if (FNDFLAGS[8] == 1)
+			return (ft_putnbrzu((size_t)ARG));
 		else
 			return (ft_putnbru((unsigned int)ARG));
 	}
