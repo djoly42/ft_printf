@@ -6,13 +6,25 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 14:00:07 by djoly             #+#    #+#             */
-/*   Updated: 2016/03/03 14:52:15 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/03 15:36:57 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "ft_printf.h"
 
+int		ft_wnstrlen(wchar_t *str, int n)
+{
+	int i;
+
+	i = 0;
+	while (*str != '\0' && (i + ft_wcharlen(*str)) <= n)
+	{
+		i += ft_wcharlen(*str);
+		str++;
+	}
+	return (i);
+}
 
 static void x_prec(t_env *env)
 {
@@ -28,6 +40,7 @@ static void x_prec(t_env *env)
 */
 	if (NBRPREC != -1)
 	{
+		NBRPREC = ft_wnstrlen((wchar_t *)ARG, NBRPREC);
 	if (FNDFLAGS[2] == -1 && NBR != -1)// && NBRPREC != -1) //pas de - et nbr
 	{
 		if (NBRPREC > ARGLEN && NBR > ARGLEN)
