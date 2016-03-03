@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 09:27:34 by djoly             #+#    #+#             */
-/*   Updated: 2016/03/02 13:52:27 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/03 10:15:36 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ void print_percent(t_env *env)
 	RET = RET + ft_putchar('%');
 	if (FNDFLAGS[2] == 1 && NBR != -1)
 		RET = RET + ft_putspace(NBR - 1);
+	//	ft_putstr("precent");
 }

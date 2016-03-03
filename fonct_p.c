@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 16:35:37 by djoly             #+#    #+#             */
-/*   Updated: 2016/03/02 18:14:42 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/03 10:48:29 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,7 +220,7 @@ static void x_prec(t_env *env)
 		}
 
 		// ft_putnbr(RET);
-		if (FNDFLAGS[2] == 1 && NBRPREC != -1 && NBR != -1)//.
+		if (FNDFLAGS[2] == 1 && NBRPREC != -1 && NBR > NBRPREC)// NBR != -1
 		RET = RET + ft_putspace(NBR - NBRPREC);
 	}
 	else
@@ -251,7 +251,7 @@ int                     fonct_p(t_env *env)
 		else
 		{
 		print_hexa(env);
-		RET = RET + ARGLEN;
+		RET = RET + ARGLEN - 2;
 		}
 		// ft_putnbr(RET);
 		if (FNDFLAGS[2] == 1 && NBR != -1 && NBR > env->arglen && FNDFLAGS[9] == -1) // - et nbr

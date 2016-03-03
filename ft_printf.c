@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 12:40:46 by djoly             #+#    #+#             */
-/*   Updated: 2016/03/02 14:03:04 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/03 10:15:15 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int 	ft_check_token(t_env *env)
 			if (FORMAT[IFOR] == '%')
 			{
 				print_percent(env);
-			//	IFOR = IFOR + 1;
+				ft_re_init_env(env);
 			}
 			else {
 			env->error = 1;

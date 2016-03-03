@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 17:36:04 by djoly             #+#    #+#             */
-/*   Updated: 2016/03/02 17:37:26 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/03 10:54:17 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,48 @@ static int hexa_lenj(uintmax_t nb)
     return (i);
 }
 
+static int hexa_lenh(uintmax_t nb)
+{
+    int i;
+
+	if (nb == 0)
+		return (1);
+    i = 0;
+    while (nb != 0)
+    {
+        i++;
+        nb = nb / 16;
+    }
+    return (i);
+}
+
+static int hexa_lenhh(uintmax_t nb)
+{
+    int i;
+
+	if (nb == 0)
+		return (1);
+    i = 0;
+    while (nb != 0)
+    {
+        i++;
+        nb = nb / 16;
+    }
+    return (i);
+}
+
 static int hexa_len(t_env *env)
 {
 	if (FNDFLAGS[6] == 1)
 		return (hexa_lenl((unsigned long int)ARG));
 	else if (FNDFLAGS[6] == 2)
 		return (hexa_lenll((unsigned long long int)ARG));
+	else if (FNDFLAGS[5] == 1)
+		return (hexa_lenh((unsigned short int)ARG));
+	else if (FNDFLAGS[5] == 2)
+		return (hexa_lenhh((unsigned char)ARG));
 	else if (FNDFLAGS[7] == 1)
-		return (hexa_lenj((uintmax_t)ARG));
+			return (hexa_lenj((uintmax_t)ARG));
 	else
 		return (hexa_leni((unsigned int)ARG));
 }
@@ -133,15 +167,44 @@ static void print_hexaj(uintmax_t nb, t_env *env)
 	}
 }
 
+static void print_hexah(unsigned short int nb, t_env *env)
+{
+	if (nb != 0)
+	{
+		print_hexah(nb / 16, env);
+		if (ITOK == 10)
+			ft_putchar(HEXA[nb % 16]);
+		else
+			ft_putchar(HEXA2[nb % 16]);
+	}
+}
+
+
+static void print_hexahh(unsigned char nb, t_env *env)
+{
+	if (nb != 0)
+	{
+		print_hexahh(nb / 16, env);
+		if (ITOK == 10)
+			ft_putchar(HEXA[nb % 16]);
+		else
+			ft_putchar(HEXA2[nb % 16]);
+	}
+}
+
 static int print_hexa(t_env *env)
 {
-
 	if (FNDFLAGS[6] == 1)
 		print_hexal((long long unsigned int)ARG, env);
 	else if (FNDFLAGS[6] == 2)
 		print_hexall((long long unsigned int)ARG, env);
 	else if (FNDFLAGS[7] == 1)
 		print_hexaj((uintmax_t)ARG, env);
+	else if (FNDFLAGS[5] == 1)
+		print_hexah((unsigned short int)ARG, env);
+	else if (FNDFLAGS[5] == 2)
+		print_hexahh((unsigned char)ARG, env);
+
 	else
 		print_hexai((unsigned int)ARG, env);
 }
@@ -180,16 +243,17 @@ static void x_prec(t_env *env)
 
 	if (!ft_test0(env) && FNDFLAGS[0] == 1 && NBR != -1)//#
 		NBR = NBR - 2;
-	if (FNDFLAGS[2] != 1 && NBR != -1)
+	if (FNDFLAGS[2] == -1 && NBR != -1)
 		{
-			//if (NBRPREC == -1)
-			//	RET = RET + ft_putspace(NBR);
+			if (NBR > NBRPREC)
+			{
 			 if (NBRPREC > ARGLEN)
 				RET = RET + ft_putspace(NBR - NBRPREC);
 			else if (ft_test0 (env))
 				RET = RET + ft_putspace(NBR);
 			else
 				RET = RET + ft_putspace(NBR - ARGLEN);
+			}
 		}
 		if (FNDFLAGS[0] == 1 && !ft_test0(env))//#
 			RET = RET + print_dies(env);

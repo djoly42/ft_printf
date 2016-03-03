@@ -4,7 +4,9 @@
 
 static void x_prec(t_env *env)
 {
-	if (FNDFLAGS[2] == -1 && NBR != -1 && NBRPREC != -1) //pas de - et nbr
+	if (NBRPREC != -1)
+	{
+	if (FNDFLAGS[2] == -1 && NBR != -1)// && NBRPREC != -1) //pas de - et nbr
 	{
 		if (NBRPREC > ARGLEN)
 		{
@@ -13,7 +15,7 @@ static void x_prec(t_env *env)
 		else
 			RET = RET + ft_putspace(NBR - ARGLEN);
 		}
-		else
+		else if (NBRPREC != -1)
 		{
 		if (FNDFLAGS[1] == 1)
 			RET = RET + ft_putzero2(NBR - NBRPREC);
@@ -32,22 +34,32 @@ static void x_prec(t_env *env)
 		else
 			RET = RET + ft_putspace(NBR - NBRPREC);
 	}
+	}
+	else
+	{
+		//ft_putstr(">>");
+		if (FNDFLAGS[1] == 1)
+			RET = RET + ft_putzero2(NBR);
+	}
 }
 
 int     fonct_s(t_env *env)
 {
-    if (FNDFLAGS[9] == 1 && NBRPREC == -1)
-		return (0);
+//    if (FNDFLAGS[9] == 1 && NBRPREC == -1)
+//		return (0);
+if(ARG != NULL)
+ARGLEN = ft_strlen((char *)ARG);
+if (FNDFLAGS[9] == 1)
+	x_prec(env);
+else
+{
+
 	if (ARG == NULL)
     {
      RET += ft_putstr("(null)");
      return (0);
     }
-    ARGLEN = ft_strlen((char *)ARG);
-	if (FNDFLAGS[9] == 1)
-		x_prec(env);
-	else
-	{
+
     if (FNDFLAGS[2] == -1 && NBR > ARGLEN) //pas de - et nbr
     {
         if (FNDFLAGS[1] == 1)
