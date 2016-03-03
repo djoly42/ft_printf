@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 14:17:44 by djoly             #+#    #+#             */
-/*   Updated: 2016/03/03 14:45:18 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/03 15:44:40 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,12 @@ int		ft_wstrlen(wchar_t *str)
 		str++;
 	}
 	return (i);
+}
+
+int				ft_arglens(t_env *env)
+{
+	if (FNDFLAGS[6] == 1)
+		return (ft_wstrlen((wchar_t)ARG));
+	else
+		return (ft_strlen((char *)ARG));
 }

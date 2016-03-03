@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 17:04:56 by djoly             #+#    #+#             */
-/*   Updated: 2016/03/02 15:58:04 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/03 17:18:12 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -504,6 +504,14 @@ int	main(void)
 		or = printf("ORIG>-0+5d 42\t[%D]\n", LONG_MAX);
 		ft_print_result(mr, or, __LINE__);
 
+mr = ft_printf("MINE>03.2 42\t[%03.2d]\n", -1);
+or = printf("ORIG>03.2 42\t[%03.2d]\n", -1);
+ft_print_result(mr, or, __LINE__);
+
+//10 "% d"
+	mr = ft_printf("MINE>\t[% 5d]\n", 650);
+	or = printf("ORIG>\t[% 5d]\n", 650);
+	ft_print_result(mr, or, __LINE__);
 		/*
 		mr = ft_printf("MINE>###-#0000 33...12..#0+0d 256\t[%###-#0000 33...12#0+0d]\n", 256);
 		or = printf("ORIG>###-#0000 33...12..#0+0d 256\t[%###-#0000 33...12#0+0d]\n", 256);

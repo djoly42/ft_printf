@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:33:26 by djoly             #+#    #+#             */
-/*   Updated: 2016/03/03 14:43:06 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/03 15:42:40 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ int						ft_put_w_char(wchar_t c);
 int						ft_wstrlen(wchar_t *str);
 int						ft_putwnstr(wchar_t *str, int n);
 int						ft_putwstr(wchar_t *str);
-
+int						ft_arglens(t_env *env);
 
 
 

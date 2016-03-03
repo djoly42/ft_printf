@@ -29,7 +29,7 @@ static void     ft_flag_prec(t_env *env)
 {
 	int pos;
 
-	//statut(env);
+	FNDFLAGS[1] == -1;
 	if ((int)ARG == 0 && NBR == -1 && NBRPREC == -1)//
 	return ;
 	if (NBRPREC == -1 && NBRPREC < ARGLEN && (int)ARG != 0)
@@ -40,6 +40,15 @@ static void     ft_flag_prec(t_env *env)
 		NBR = NBR - 1;
 		if ((int)ARG < 0 && ARGLEN < NBRPREC)
 		NBR = NBR - 1;
+	/*	ft_putstr(">>NBR>>");
+		ft_putnbr(NBR);
+		ft_putstr("<<");
+		ft_putstr(">>NBRPREC>>");
+		ft_putnbr(NBRPREC);
+		ft_putstr("<<");
+		ft_putstr(">>ARGLEN>>");
+		ft_putnbr(ARGLEN);
+		ft_putstr("<<");*/
 		if (NBRPREC > ARGLEN) //!= -1)
 		RET = RET + ft_putspace(NBR - NBRPREC);
 		else if ((int)ARG == 0 && NBRPREC == -1)
@@ -133,14 +142,17 @@ static void     ft_flag_prec(t_env *env)
 int     fonct_d(t_env *env)
 {
 	int	pos;
+
 	ARGLEN = ft_nbrlen((int)ARG);
+	if (FNDFLAGS[2] == 1)
+		FNDFLAGS[1] = -1;
 	if (FNDFLAGS[9] == 1)//.
 	ft_flag_prec(env);
 	else
 	{
 		if(FNDFLAGS[2] != 1) // pas de -
 		{
-			if (FNDFLAGS[4] == 1 && FNDFLAGS[3] == -1 && ((int)ARG >= 0)) // && NBR == -1 ' ' pas de NBR
+			if (FNDFLAGS[4] == 1 && FNDFLAGS[1] == -1 && FNDFLAGS[3] == -1 && ((int)ARG >= 0)) // && NBR == -1 ' ' pas de NBR
 			{
 				RET = RET + ft_putchar(' ');
 				NBR = NBR - 1;

@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 16:35:37 by djoly             #+#    #+#             */
-/*   Updated: 2016/03/03 10:48:29 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/03 15:51:41 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,10 +241,10 @@ int                     fonct_p(t_env *env)
 	else
 	{
 		if (FNDFLAGS[2] == -1 && FNDFLAGS[1] == -1 && NBR > ARGLEN) // pas de - et nbr pas de 0
-		RET = RET + ft_putspace(NBR - env->arglen);
+			RET = RET + ft_putspace(NBR - env->arglen);
 		RET = RET + print_dies(env);
-		if (FNDFLAGS[2] != 1 && FNDFLAGS[1] == 1 && NBR != -1)
-		RET = RET + ft_putzero2(NBR - env->arglen);
+		if (FNDFLAGS[2] == -1 && FNDFLAGS[1] == 1 && NBR > ARGLEN)
+			RET = RET + ft_putzero2(NBR - ARGLEN);
 
 		if (ft_test0(env))
 		RET = RET + ft_putchar('0');

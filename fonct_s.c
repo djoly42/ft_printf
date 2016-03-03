@@ -50,6 +50,11 @@ int     fonct_s(t_env *env)
 {
 //    if (FNDFLAGS[9] == 1 && NBRPREC == -1)
 //		return (0);
+if(FNDFLAGS[6] == 1)
+{
+fonct_S(env);
+	return (1);
+}
 if(ARG != NULL)
 ARGLEN = ft_strlen((char *)ARG);
 if (FNDFLAGS[9] == 1)
