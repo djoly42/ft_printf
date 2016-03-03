@@ -128,23 +128,44 @@ or = printf(   "ORIG>\t[%+10p]\n", test);
 ft_print_result(mr, or, __LINE__);
 */
 
+
+
+//10 "% d"
+mr = ft_printf("MINE> 5d 650\t[% 5d]\n", 650);
+or = printf("ORIG> 5d 650\t[% 5d]\n", 650);
+ft_print_result(mr, or, __LINE__);
+
+mr = ft_printf("MINE> d 9999\t[% d]\n", 9999);
+or = printf("ORIG> d 9999\t[% d]\n", 9999);
+ft_print_result(mr, or, __LINE__);
+
+//10 "% d"
+mr = ft_printf("MINE> 03d 0\t[% 03d]\n", 0);
+or = printf("ORIG> 03d 0\t[% 03d]\n", 0);
+ft_print_result(mr, or, __LINE__);
+
 mr = ft_printf("MINE>03.2 -1\t[%03.2d]\n", -1);
 or = printf("ORIG>03.2 -1\t[%03.2d]\n", -1);
 ft_print_result(mr, or, __LINE__);
 
-//10 "% d"
-	mr = ft_printf("MINE> 5d 650\t[% 5d]\n", 650);
-	or = printf("ORIG> 5d 650\t[% 5d]\n", 650);
-	ft_print_result(mr, or, __LINE__);
+mr = ft_printf("MINE>3.2 -1\t[%3.2d]\n", -1);
+or = printf("ORIG>3.2 -1\t[%3.2d]\n", -1);
+ft_print_result(mr, or, __LINE__);
 
-	mr = ft_printf("MINE> d 9999\t[% d]\n", 9999);
-	or = printf("ORIG> d 9999\t[% d]\n", 9999);
-	ft_print_result(mr, or, __LINE__);
+//54
+mr = ft_printf("MINE>06.2d -1\t[%06.2d]\n", -1);
+or = printf("ORIG>06.2d -1\t[%06.2d]\n", -1);
+ft_print_result(mr, or, __LINE__);
 
-	//10 "% d"
-		mr = ft_printf("MINE> 03d 0\t[% 03d]\n", 0);
-		or = printf("ORIG> 03d 0\t[% 03d]\n", 0);
-		ft_print_result(mr, or, __LINE__);
+//56
+mr = ft_printf("MINE>5.d 1\t[%5.d], [%5.0d]\n", 1, 1);
+or = printf("ORIG>5.d 1\t[%5.d], [%5.0d]\n", 1, 1);
+ft_print_result(mr, or, __LINE__);
+
+//69
+	mr = ft_printf("MINE>5.d 5.0d 1 1\t[%5.d], [%5.0d]\n", 1, 1);
+	or = printf("ORIG>5.d 5.0d 1 1\t[%5.d], [%5.0d]\n", 1, 1);
+	ft_print_result(mr, or, __LINE__);
 
     return (0);
 }

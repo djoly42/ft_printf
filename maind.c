@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 17:04:56 by djoly             #+#    #+#             */
-/*   Updated: 2016/03/03 17:18:12 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/03 18:09:56 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -425,7 +425,7 @@ int	main(void)
 	mr = ft_printf("MINE>\t[%03.2d]\n", -1);
 	or = printf("ORIG>\t[%03.2d]\n", -1);
 	ft_print_result(mr, or, __LINE__);
-
+//54
     mr = ft_printf("MINE>\t[%06.2d]\n", -1);
 	or = printf("ORIG>\t[%06.2d]\n", -1);
 	ft_print_result(mr, or, __LINE__);
@@ -433,18 +433,18 @@ int	main(void)
     mr = ft_printf("MINE>\t[%.d], [%.0d]\n", 0, 0);
 	or = printf("ORIG>\t[%.d], [%.0d]\n", 0, 0);
 	ft_print_result(mr, or, __LINE__);
-
-		mr = ft_printf("MINE>\t[%5.d], [%5.0d]\n", 1, 1);
-		or = printf("ORIG>\t[%5.d], [%5.0d]\n", 1, 1);
-		ft_print_result(mr, or, __LINE__);
+//56
+	mr = ft_printf("MINE>\t[%5.d], [%5.0d]\n", 1, 1);
+	or = printf("ORIG>\t[%5.d], [%5.0d]\n", 1, 1);
+	ft_print_result(mr, or, __LINE__);
 //test zone
-		mr = ft_printf("MINE>\t[%zhd]\n", 4294967296);
-		or = printf("ORIG>\t[%zhd]\n", 4294967296);
-		ft_print_result(mr, or, __LINE__);
+	mr = ft_printf("MINE>\t[%zhd]\n", 4294967296);
+	or = printf("ORIG>\t[%zhd]\n", 4294967296);
+	ft_print_result(mr, or, __LINE__);
 
-		mr = ft_printf("MINE>\t[%hzd]\n", 4294967296);
-		or = printf("ORIG>\t[%hzd]\n", 4294967296);
-		ft_print_result(mr, or, __LINE__);
+	mr = ft_printf("MINE>\t[%hzd]\n", 4294967296);
+	or = printf("ORIG>\t[%hzd]\n", 4294967296);
+	ft_print_result(mr, or, __LINE__);
 //59
 		mr = ft_printf("MINE>\t[%jhd]\n", 9223372036854775807);
 		or = printf("ORIG>\t[%jhd]\n", 9223372036854775807);
@@ -487,7 +487,7 @@ int	main(void)
 		mr = ft_printf("MINE>5.d 5.0d 0 0\t[%5.d], [%5.0d]\n", 0, 0);
 		or = printf("ORIG>5.d 5.0d 0 0\t[%5.d], [%5.0d]\n", 0, 0);
 		ft_print_result(mr, or, __LINE__);
-
+//69
 		mr = ft_printf("MINE>5.d 5.0d 1 1\t[%5.d], [%5.0d]\n", 1, 1);
 		or = printf("ORIG>5.d 5.0d 1 1\t[%5.d], [%5.0d]\n", 1, 1);
 		ft_print_result(mr, or, __LINE__);

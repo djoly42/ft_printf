@@ -34,13 +34,13 @@ static void     ft_flag_prec(t_env *env)
 	return ;
 	if (NBRPREC == -1 && NBRPREC < ARGLEN && (int)ARG != 0)
 	NBRPREC = ARGLEN;
-	if (NBR >= ARGLEN && NBR > NBRPREC && FNDFLAGS[2] != 1) // nbr sans -
+	if (NBR >= ARGLEN && NBR > NBRPREC && FNDFLAGS[2] == -1) // nbr sans -
 	{
 		if (FNDFLAGS[3] == 1) // +
 		NBR = NBR - 1;
 		if ((int)ARG < 0 && ARGLEN < NBRPREC)
 		NBR = NBR - 1;
-	/*	ft_putstr(">>NBR>>");
+		/*ft_putstr(">>NBR>>");
 		ft_putnbr(NBR);
 		ft_putstr("<<");
 		ft_putstr(">>NBRPREC>>");
@@ -49,12 +49,13 @@ static void     ft_flag_prec(t_env *env)
 		ft_putstr(">>ARGLEN>>");
 		ft_putnbr(ARGLEN);
 		ft_putstr("<<");*/
-		if (NBRPREC > ARGLEN) //!= -1)
-		RET = RET + ft_putspace(NBR - NBRPREC);
+		if (NBRPREC >= ARGLEN) //!= -1)
+			RET = RET + ft_putspace(NBR - NBRPREC);
 		else if ((int)ARG == 0 && NBRPREC == -1)
-		RET = RET + ft_putspace(NBR);
-		else
-		RET = RET + ft_putspace(NBR - ARGLEN);
+			RET = RET + ft_putspace(NBR);
+		else if (ARGLEN > NBRPREC)
+			RET = RET + ft_putspace(NBR - ARGLEN);
+		//ft_putstr(">>NBR>>");
 	}
 	if (FNDFLAGS[3] == 1) // +
 	RET = RET + ft_putchar('+');
@@ -152,17 +153,19 @@ int     fonct_d(t_env *env)
 	{
 		if(FNDFLAGS[2] != 1) // pas de -
 		{
-			if (FNDFLAGS[4] == 1 && FNDFLAGS[1] == -1 && FNDFLAGS[3] == -1 && ((int)ARG >= 0)) // && NBR == -1 ' ' pas de NBR
-			{
-				RET = RET + ft_putchar(' ');
-				NBR = NBR - 1;
-			}
-			else if (FNDFLAGS [1] == -1 && NBR != -1 && NBR > ft_nbrlen((int)ARG))// pas de 0  nbr > arg
+
+			if (FNDFLAGS [1] == -1 && NBR != -1 && NBR > ft_nbrlen((int)ARG))// pas de 0  nbr > arg
 			{
 				if (FNDFLAGS[3] == 1 && (int)ARG > 0)
 				NBR = NBR - 1;
 				RET = RET + ft_putspace((NBR = NBR - ft_nbrlen((int)ARG)));
 			}
+			else if (FNDFLAGS[4] == 1 && FNDFLAGS[3] == -1 && ((int)ARG >= 0)) // && NBR == -1 ' ' pas de NBR
+			{
+				RET = RET + ft_putchar(' ');
+				NBR = NBR - 1;
+			}
+
 			if ((FNDFLAGS[3] == 1) && ((int)ARG >= 0)) //(FNDFLAGS[2] != 1))// + et pas de -ARG || ((int)ARG > 0)))
 			{
 				if (env->putneg != 1)

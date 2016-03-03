@@ -6,7 +6,7 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/02 18:45:09 by djoly             #+#    #+#             */
-/*   Updated: 2016/03/03 11:47:59 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/03 18:11:23 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	ft_putoctal_uintmax_t(uintmax_t nbr)
 	int	ret;
 
 	ret = 0;
-	if (nbr > 8)
+	if (nbr > 7)
 	{
 		ret = ret + ft_putoctal_uintmax_t(nbr / 8);
 		ret = ret + ft_putoctal_uintmax_t(nbr % 8);
@@ -34,7 +34,7 @@ static int	ft_putoctal_hho(unsigned char nbr)
 	int	ret;
 
 	ret = 0;
-	if (nbr > 8)
+	if (nbr > 7)
 	{
 		ret = ret + ft_putoctal_hho(nbr / 8);
 		ret = ret + ft_putoctal_hho(nbr % 8);
@@ -51,7 +51,7 @@ static int	ft_putoctal_ho(unsigned short int nbr)
 	int	ret;
 
 	ret = 0;
-	if (nbr > 8)
+	if (nbr > 7)
 	{
 		ret = ret + ft_putoctal_ho(nbr / 8);
 		ret = ret + ft_putoctal_ho(nbr % 8);
@@ -68,7 +68,7 @@ static int	ft_putoctal_llo(unsigned long long int nbr)
 	int	ret;
 
 	ret = 0;
-	if (nbr > 8)
+	if (nbr > 7)
 	{
 		ret = ret + ft_putoctal_llo(nbr / 8);
 		ret = ret + ft_putoctal_llo(nbr % 8);
@@ -85,7 +85,7 @@ static int	ft_putoctal_lo(unsigned long int nbr)
 	int	ret;
 
 	ret = 0;
-	if (nbr > 8)
+	if (nbr > 7)
 	{
 		ret = ret + ft_putoctal_lo(nbr / 8);
 		ret = ret + ft_putoctal_lo(nbr % 8);
@@ -102,7 +102,7 @@ static int	ft_putoctal_zo(size_t nbr)
 	int	ret;
 
 	ret = 0;
-	if (nbr > 8)
+	if (nbr > 7)
 	{
 		ret = ret + ft_putoctal_zo(nbr / 8);
 		ret = ret + ft_putoctal_zo(nbr % 8);
@@ -119,7 +119,7 @@ static int	ft_putoctal(unsigned int nbr)
 	int	ret;
 
 	ret = 0;
-	if (nbr > 8)
+	if (nbr > 7)
 	{
 		ret = ret + ft_putoctal(nbr / 8);
 		ret = ret + ft_putoctal(nbr % 8);
