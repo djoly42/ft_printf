@@ -6,13 +6,13 @@
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 13:22:30 by djoly             #+#    #+#             */
-/*   Updated: 2016/03/03 13:59:22 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/09 19:15:13 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		ft_nbrlenD(long int nb)
+static int		ft_nbrlendd(long int nb)
 {
 	int i;
 
@@ -22,7 +22,7 @@ static int		ft_nbrlenD(long int nb)
 	return (i);
 }
 
-static int		ft_nbrlenhhD(unsigned char nb)
+static int		ft_nbrlenhhdd(unsigned char nb)
 {
 	int i;
 
@@ -32,102 +32,52 @@ static int		ft_nbrlenhhD(unsigned char nb)
 	return (i);
 }
 
-int				ft_arglenD(t_env *env)
+int				ft_arglendd(t_env *env)
 {
-	//if (FNDFLAGS[6] == 1)
-	//	return (ft_nbrlenl((long unsigned int)ARG));
-	//else if (FNDFLAGS[6] == 2)
-	//	return (ft_nbrlenll((long long unsigned int)ARG));
-	//else if (FNDFLAGS[7] == 1)
-	//	return (ft_nbrlenj((uintmax_t)ARG));
-	//else
-	 if (FNDFLAGS[5] == 2)
-		return (ft_nbrlenhhD((unsigned char)ARG));
+	if (FNDFLAGS[5] == 2)
+		return (ft_nbrlenhhdd((unsigned char)ARG));
 	else
-		return (ft_nbrlenD((long int)ARG));
+		return (ft_nbrlendd((long int)ARG));
 }
 
-/*
-int	ft_putnbrhhD(int nbr)
+void			ft_which_putnbrnegdd(t_env *env)
 {
-	int	ret;
-
-	ret = 0;
-	if (nbr == -2147483648)
-	{
-		ft_putstr("-2147483648");
-		return (11);
-	}
-    if (nbr == -9223372036854775808)
-    {
-		ft_putstr("-9223372036854775808");
-		return (20);
-	}
+	if (FNDFLAGS[5] == -1 && FNDFLAGS[6] == -1 && FNDFLAGS[7] == -1
+	&& FNDFLAGS[8] == -1 && (int)ARG < 0)
+		RET = RET + ft_putnbr((long int)NBNEG);
+	else if (FNDFLAGS[6] == 1)
+		RET = RET + ft_putnbr((long int)NBNEG);
+	else if (FNDFLAGS[6] == 2)
+		RET = RET + ft_putnbr((long long int)NBNEG);
+	else if (FNDFLAGS[8] == 1)
+		RET = RET + ft_putnbr((size_t)NBNEG);
+	else if (FNDFLAGS[5] == 2)
+		RET = RET + ft_putnbr((int)NBNEG);
+	else if (FNDFLAGS[7] == 1)
+		RET = RET + ft_putnbr((intmax_t)NBNEG);
+	else if (FNDFLAGS[5] == 1)
+		RET = RET + ft_putnbr((int)NBNEG);
 	else
-	{
-		if (nbr < 0)
-		{
-			ft_putchar('-');
-			nbr = (-1) * nbr;
-			ret++;
-		}
-		if (nbr >= 10)
-		{
-			ret = ret + ft_putnbrhhD(nbr / 10);
-			ret = ret + ft_putnbrhhD(nbr % 10);
-		}
-		else
-		{
-			ret = ret + ft_putchar(nbr + '0');
-		}
-	}
-	return (ret);
+		RET = RET + ft_putnbr((long int)NBNEG);
 }
-*/
 
-void			ft_which_putnbrD(t_env *env)
+void			ft_which_putnbrdd(t_env *env)
 {
-
-
-	if (FNDFLAGS[5] == -1 && FNDFLAGS[6] == -1 && FNDFLAGS[7] == -1 && FNDFLAGS[8] == -1 && (int)ARG < 0)//          (long long int)ARG < 9223372036854775808)//  (long long int)ARG < 0 )//&& FNDFLAGS[2] != 1) // - nest pas encore ecrie, voir putzero
-	{
-		//ft_putstr(">>DANS IF1>>");
-		RET = RET + ft_putnbr((long int)ARG);//pos);
-	}
-	else if(FNDFLAGS[6] == 1)
-	{
-		//ft_putstr(">>DANS IF2>>");
+	if (FNDFLAGS[5] == -1 && FNDFLAGS[6] == -1 && FNDFLAGS[7] == -1
+	&& FNDFLAGS[8] == -1 && (int)ARG < 0)
 		RET = RET + ft_putnbr((long int)ARG);
-	}
-	else if(FNDFLAGS[6] == 2)
-	{
-		//    printf(">>%lld<<",ARG);
-		//ft_putstr(">>DANS IF3>>");
+	else if (FNDFLAGS[6] == 1)
+		RET = RET + ft_putnbr((long int)ARG);
+	else if (FNDFLAGS[6] == 2)
 		RET = RET + ft_putnbr((long long int)ARG);
-	}
-	else if(FNDFLAGS[8] == 1)
-	{
-		//	ft_putstr(">>DANS Z>>");
+	else if (FNDFLAGS[8] == 1)
 		RET = RET + ft_putnbr((size_t)ARG);
-	}
-	else if(FNDFLAGS[5] == 2)
-	{
-		//ft_putstr(">>DANS IF5>>");
+	else if (FNDFLAGS[5] == 2)
 		RET = RET + ft_putnbr((int)ARG);
-	}
-	else if(FNDFLAGS[7] == 1)
-	{
-		//ft_putstr(">>DANS J>>");
+	else if (FNDFLAGS[7] == 1)
 		RET = RET + ft_putnbr((intmax_t)ARG);
-	}
-	else if(FNDFLAGS[5] == 1)
-	{
-		//ft_putstr(">>DANS H>>");
+	else if (FNDFLAGS[5] == 1)
 		RET = RET + ft_putnbr((int)ARG);
-	}
 	else
-	{
-		//	ft_putstr(">>DANS ELSE>>");
 		RET = RET + ft_putnbr((long int)ARG);
-	}
 }

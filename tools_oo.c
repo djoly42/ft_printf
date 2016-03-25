@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   tools_oo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/01 14:28:37 by djoly             #+#    #+#             */
-/*   Updated: 2016/03/09 16:27:19 by djoly            ###   ########.fr       */
+/*   Created: 2016/03/10 13:08:44 by djoly             #+#    #+#             */
+/*   Updated: 2016/03/10 13:09:14 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strchr(const char *s, int c)
+int					ft_putoo(unsigned long int nbr)
+{
+	int	ret;
+
+	ret = 0;
+	if (nbr > 7)
+	{
+		ret = ret + ft_putoo(nbr / 8);
+		ret = ret + ft_putoo(nbr % 8);
+	}
+	else
+		ret = ret + ft_putchar(nbr + '0');
+	return (ret);
+}
+
+int					ft_nbrlenoo(unsigned long int nb)
 {
 	int i;
 
-	i = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
+	i = 1;
+	while (nb /= 8)
 		i++;
-	}
-	if ((char)c == '\0')
-		return ((char *)&s[i]);
-	return (NULL);
+	return (i);
 }

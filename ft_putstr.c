@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djoly <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: djoly <djoly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 20:05:36 by djoly             #+#    #+#             */
-/*   Updated: 2015/12/30 11:37:03 by djoly            ###   ########.fr       */
+/*   Updated: 2016/03/09 16:14:42 by djoly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 size_t	ft_strlen(const char *str)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	while (str[i] != '\0')
-	{
 		i++;
-	}
 	return (i);
 }
 
-int 	ft_putstr2(char const *s, int len)
+int		ft_putstr2(char const *s, int len)
 {
 	int		i;
 
@@ -34,10 +32,10 @@ int 	ft_putstr2(char const *s, int len)
 		write(1, &s[i], 1);
 		i++;
 	}
-    return (i);
+	return (i);
 }
 
-int 	ft_putstr(char const *s)
+int		ft_putstr(char const *s)
 {
 	int		i;
 
@@ -47,5 +45,5 @@ int 	ft_putstr(char const *s)
 		write(1, &s[i], 1);
 		i++;
 	}
-    return (i);
+	return (i);
 }
